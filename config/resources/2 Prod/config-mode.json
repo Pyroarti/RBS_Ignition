@@ -1,0 +1,7 @@
+{
+  "title": "2 Prod",
+  "description": "Live produktion",
+  "enabled": true,
+  "inheritable": true,
+  "parent": "core"
+}

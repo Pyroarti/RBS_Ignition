@@ -1,0 +1,881 @@
+{
+  "name": "Exchange",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "name": "WaterPack",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "typeColor": -2763307,
+          "name": "HOA",
+          "parameters": {
+            "name": {
+              "dataType": "String"
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "valueSource": "expr",
+              "expression": "coalesce({name}, {RootInstanceName})",
+              "dataType": "String",
+              "name": "Name",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "name": "Mode",
+              "value": 1,
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "expression": "0",
+              "dataType": "Int4",
+              "name": "State",
+              "value": 0,
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "expr",
+              "expression": "case({[.]State}\n\t, 0, \u0027Off\u0027\n\t, 1, \u0027Running\u0027\n\t, 2, \u0027Faulted\u0027\n\t, \u0027Error\u0027\n)",
+              "dataType": "String",
+              "name": "StateName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "expr",
+              "expression": "case({[.]Mode}\n\t, 0, \u0027Off\u0027\n\t, 1, \u0027Auto\u0027\n\t, 2, \u0027Hand\u0027\n\t, \u0027Error\u0027\n)",
+              "dataType": "String",
+              "name": "ModeName",
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -7667830,
+          "name": "VFDPump",
+          "typeId": "Exchange/WaterPack/HOA",
+          "parameters": {
+            "maxSpeed": {
+              "dataType": "Float",
+              "value": 60.0
+            },
+            "minSpeed": {
+              "dataType": "Float",
+              "value": 0.0
+            },
+            "units": {
+              "dataType": "String",
+              "value": "hz"
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "name": "Name",
+              "tagType": "AtomicTag"
+            },
+            {
+              "engHigh": {
+                "bindType": "parameter",
+                "binding": "{maxSpeed}"
+              },
+              "engLow": {
+                "bindType": "parameter",
+                "binding": "{minSpeed}"
+              },
+              "engUnit": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              },
+              "valueSource": "opc",
+              "name": "Speed",
+              "engLimitMode": "Clamp_Both",
+              "value": 60,
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Mode",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "StateName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "State",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Boolean",
+              "name": "InService",
+              "value": true,
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Setpoints",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "typeColor": -3342337,
+                  "name": "HighSpeed",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    },
+                    "units": {
+                      "dataType": "String",
+                      "value": {
+                        "bindType": "parameter",
+                        "binding": "{units}"
+                      }
+                    },
+                    "value": {
+                      "dataType": "Float",
+                      "value": 10.0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "LowSpeed",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "value": {
+                      "dataType": "Float",
+                      "value": 10.0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ModeName",
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -3342337,
+          "name": "SetpointValue",
+          "parameters": {
+            "historyEnable": {
+              "dataType": "Integer",
+              "value": 0
+            },
+            "units": {
+              "dataType": "String",
+              "value": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              }
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "engUnit": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              },
+              "valueSource": "memory",
+              "dataType": "Float4",
+              "name": "Value",
+              "value": 0.0,
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -47289,
+          "name": "Valve",
+          "typeId": "Exchange/WaterPack/HOA",
+          "parameters": {
+            "units": {
+              "dataType": "String"
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "name": "ModeName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "expression": "case({[.]State}\n\t, 0, \u0027Closed\u0027\n\t, 1, \u0027Open\u0027\n\t, 2, \u0027Failed To Close\u0027\n\t, 3, \u0027Failed To Open\u0027\n\t, \u0027Error\u0027\n)",
+              "name": "StateName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "State",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Setpoints",
+              "tagType": "Folder"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Boolean",
+              "name": "InService",
+              "value": true,
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Mode",
+              "tagType": "AtomicTag"
+            },
+            {
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{path}"
+              },
+              "engUnit": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              },
+              "valueSource": "opc",
+              "expression": "case({[.]Mode}\n\t, 0, 0.0 // Off\n\t, 1, tag({path}) // Auto\n\t, 2, 0.0 // Hand\n\t, 3, -1.0 // Faulted\n\t, 0.0 // Fallback\n)",
+              "dataType": "Float4",
+              "name": "FillPercent",
+              "value": 100.0,
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Name",
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -16721447,
+          "name": "PeristalticPump",
+          "typeId": "Exchange/WaterPack/HOA",
+          "parameters": {
+            "units": {
+              "dataType": "String"
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "name": "Name",
+              "tagType": "AtomicTag"
+            },
+            {
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{path}"
+              },
+              "engUnit": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              },
+              "valueSource": "opc",
+              "expression": "case({[.]Mode}\n\t, 0, 0.0 // Off\n\t, 1, tag({path}) // Auto\n\t, 2, 0.0 // Hand\n\t, 3, -1.0 // Faulted\n\t, 0.0 // Fallback\n)",
+              "dataType": "Float4",
+              "name": "Flow",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Setpoints",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "HighFlow",
+                  "typeId": "Exchange/WaterPack/SetpointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "LowFlow",
+                  "typeId": "Exchange/WaterPack/SetpointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Mode",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Boolean",
+              "name": "InService",
+              "value": true,
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "StateName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "State",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "ModeName",
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -30070,
+          "name": "StandardPump",
+          "typeId": "Exchange/WaterPack/HOA",
+          "parameters": {
+            "units": {
+              "dataType": "String"
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "name": "StateName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "State",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Name",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Setpoints",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "LowFlow",
+                  "typeId": "Exchange/WaterPack/SetpointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "HighFlow",
+                  "typeId": "Exchange/WaterPack/SetpointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Mode",
+              "tagType": "AtomicTag"
+            },
+            {
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{path}"
+              },
+              "engUnit": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              },
+              "valueSource": "opc",
+              "expression": "case({[.]Mode}\n\t, 0, 0.0 // Off\n\t, 1, tag({path}) // Auto\n\t, 2, 0.0 // Hand\n\t, 3, -1.0 // Faulted\n\t, 0.0 // Fallback\n)",
+              "dataType": "Float4",
+              "name": "Flow",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "ModeName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Boolean",
+              "name": "InService",
+              "value": true,
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -29953,
+          "name": "StandardFilter",
+          "typeId": "Exchange/WaterPack/HOA",
+          "parameters": {
+            "units": {
+              "dataType": "String",
+              "value": " "
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "valueSource": "opc",
+              "dataType": "Float8",
+              "alarms": [
+                {
+                  "mode": "AboveValue",
+                  "name": "High Turbidity",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/HighTurbidity/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                },
+                {
+                  "mode": "BelowValue",
+                  "name": "Low Turbidity",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/LowTurbidity/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                }
+              ],
+              "name": "Turbidity",
+              "engUnit": "ntu",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Float8",
+              "alarms": [
+                {
+                  "mode": "BelowValue",
+                  "name": "Low Loss of Head",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/LowLossOfHead/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                },
+                {
+                  "mode": "AboveValue",
+                  "name": "High Loss of Head",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/HighLossOfHead/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                }
+              ],
+              "name": "LossOfHead",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Mode",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Boolean",
+              "name": "InService",
+              "value": true,
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Setpoints",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "typeColor": -3342337,
+                  "name": "HighLevel",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "value": 100.0,
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "typeColor": -3342337,
+                  "name": "LowFlow",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "typeColor": -3342337,
+                  "name": "LowTurbidity",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "typeColor": -3342337,
+                  "name": "HighLossOfHead",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "value": 1.0,
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "typeColor": -3342337,
+                  "name": "HighTurbidity",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "value": 10.0,
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "typeColor": -3342337,
+                  "name": "LowLevel",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "HighFlow",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "value": 100.0,
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "typeColor": -3342337,
+                  "name": "LowLossOfHead",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "parameters": {
+                    "historyEnable": {
+                      "dataType": "Integer",
+                      "value": 0
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "expression": "case({[.]State}\n\t, 0, \u0027Stopped\u0027\n\t, 1, \u0027Filtering\u0027\n\t, 2, \u0027Faulted\u0027\n\t, 3, \u0027Backwashing\u0027\n\t, \u0027Error\u0027\n)",
+              "name": "StateName",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Float8",
+              "alarms": [
+                {
+                  "mode": "AboveValue",
+                  "name": "High Flow",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/HighFlow/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                },
+                {
+                  "mode": "BelowValue",
+                  "name": "Low Flow",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/LowFlow/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                }
+              ],
+              "name": "Flow",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Float8",
+              "alarms": [
+                {
+                  "mode": "AboveValue",
+                  "name": "High Level",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/HighLevel/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                },
+                {
+                  "mode": "BelowValue",
+                  "name": "Low Level",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardFilter/Setpoints/LowLevel/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                }
+              ],
+              "name": "Level",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "State",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Name",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "ModeName",
+              "tagType": "AtomicTag"
+            }
+          ]
+        },
+        {
+          "typeColor": -12105729,
+          "name": "StandardTank",
+          "parameters": {
+            "name": {
+              "dataType": "String"
+            },
+            "units": {
+              "dataType": "String"
+            }
+          },
+          "tagType": "UdtType",
+          "tags": [
+            {
+              "valueSource": "expr",
+              "expression": "coalesce({name}, {RootInstanceName})",
+              "dataType": "String",
+              "name": "Name",
+              "tagType": "AtomicTag"
+            },
+            {
+              "name": "Mixer",
+              "typeId": "Exchange/WaterPack/HOA",
+              "tagType": "UdtInstance",
+              "tags": [
+                {
+                  "name": "ModeName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "State",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "StateName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Mode",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Name",
+                  "tagType": "AtomicTag"
+                }
+              ]
+            },
+            {
+              "name": "Setpoints",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "LowLevel",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "HighLevel",
+                  "typeId": "Exchange/WaterPack/SetPointValue",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Value",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "engUnit": {
+                "bindType": "parameter",
+                "binding": "{units}"
+              },
+              "valueSource": "opc",
+              "dataType": "Float4",
+              "alarms": [
+                {
+                  "mode": "AboveValue",
+                  "name": "High Level",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardTank/Setpoints/HighLevel/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                },
+                {
+                  "mode": "BelowValue",
+                  "name": "Low Level",
+                  "setpointA": {
+                    "bindType": "Tag",
+                    "value": "[~]Exchange/WaterPack/Demo/StandardTank/Setpoints/LowLevel/Value"
+                  },
+                  "displayPath": {
+                    "bindType": "Expression",
+                    "value": "{InstanceName} + \" \" + {name}"
+                  }
+                }
+              ],
+              "name": "Level",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Float4",
+              "name": "Capacity",
+              "tagType": "AtomicTag"
+            },
+            {
+              "valueSource": "opc",
+              "dataType": "Boolean",
+              "name": "InService",
+              "value": true,
+              "tagType": "AtomicTag"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

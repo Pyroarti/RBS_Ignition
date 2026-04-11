@@ -1,0 +1,2047 @@
+{
+  "name": "Exchange",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "name": "WaterPack",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "name": "Demo",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "VFDPump",
+              "typeId": "Exchange/WaterPack/VFDPump",
+              "tagType": "UdtInstance",
+              "tags": [
+                {
+                  "valueSource": "memory",
+                  "value": 57,
+                  "name": "Speed",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Name",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Setpoints",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "HighSpeed",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "LowSpeed",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "valueSource": "memory",
+                  "value": 2,
+                  "name": "Mode",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "StateName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "name": "InService",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "opc",
+                  "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/VFDPump/State",
+                  "value": 1,
+                  "opcServer": "Ignition OPC UA Server",
+                  "name": "State",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "ModeName",
+                  "tagType": "AtomicTag"
+                }
+              ]
+            },
+            {
+              "name": "Filters",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "Filter3",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter4",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter9",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter5",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter1",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter6",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter7",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter8",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter2",
+                  "typeId": "Exchange/WaterPack/StandardFilter",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "valueSource": "memory",
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "HighFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 30.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowFlow",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 10.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLossOfHead",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 1.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 15.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowLevel",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 3.0,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "LowTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.01,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "HighTurbidity",
+                          "tagType": "UdtInstance",
+                          "tags": [
+                            {
+                              "value": 0.2,
+                              "name": "Value",
+                              "tagType": "AtomicTag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Filters/Filter1/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 15.1,
+                      "engUnit": "gpm",
+                      "name": "Flow",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 0.02,
+                      "name": "Turbidity",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 2.1,
+                      "engUnit": "in",
+                      "name": "LossOfHead",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 10.1,
+                      "engUnit": "in",
+                      "name": "Level",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "value": "Filter #1",
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "PeristalticPump",
+              "typeId": "Exchange/WaterPack/PeristalticPump",
+              "parameters": {
+                "units": {
+                  "dataType": "String",
+                  "value": "gal/min"
+                }
+              },
+              "tagType": "UdtInstance",
+              "tags": [
+                {
+                  "name": "ModeName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "StateName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "opc",
+                  "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/PeristalticPump/State",
+                  "value": 2,
+                  "opcServer": "Ignition OPC UA Server",
+                  "name": "State",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "name": "Mode",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Name",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "expression": "case({[.]Mode}\n\t, 0, 0.0 // Off\n\t, 1, 110) // Auto\n\t, 2, 0.0 // Hand\n\t, 3, -1.0 // Faulted\n\t, 0.0 // Fallback\n)",
+                  "value": 3.0,
+                  "name": "Flow",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Setpoints",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "LowFlow",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "value": 3.0,
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "HighFlow",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "value": 5.0,
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "valueSource": "memory",
+                  "value": true,
+                  "name": "InService",
+                  "tagType": "AtomicTag"
+                }
+              ]
+            },
+            {
+              "name": "StandardTank",
+              "typeId": "Exchange/WaterPack/StandardTank",
+              "parameters": {
+                "name": {
+                  "dataType": "String",
+                  "value": "testTank"
+                },
+                "units": {
+                  "dataType": "String",
+                  "value": "gal"
+                }
+              },
+              "tagType": "UdtInstance",
+              "tags": [
+                {
+                  "name": "Setpoints",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "LowLevel",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "value": 50.0,
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "HighLevel",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "value": 130.0,
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "Tank 1",
+                  "name": "Name",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "value": 150.0,
+                  "name": "Capacity",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "opc",
+                  "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/StandardTank/Level",
+                  "historyProvider": "sql_lite",
+                  "historyEnabled": true,
+                  "value": 130.0,
+                  "opcServer": "Ignition OPC UA Server",
+                  "name": "Level",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "value": true,
+                  "name": "InService",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Mixer",
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 1,
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "memory",
+                      "value": 1,
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "StandardPump",
+              "typeId": "Exchange/WaterPack/StandardPump",
+              "parameters": {
+                "name": {
+                  "dataType": "String",
+                  "value": "Pump 1"
+                },
+                "units": {
+                  "dataType": "String",
+                  "value": "gpm"
+                }
+              },
+              "tagType": "UdtInstance",
+              "tags": [
+                {
+                  "name": "ModeName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "StateName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "opc",
+                  "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/StandardPump/State",
+                  "value": 1,
+                  "opcServer": "Ignition OPC UA Server",
+                  "name": "State",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Setpoints",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "LowFlow",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "value": 5.0,
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "HighFlow",
+                      "tagType": "UdtInstance",
+                      "tags": [
+                        {
+                          "value": 110.0,
+                          "name": "Value",
+                          "tagType": "AtomicTag"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Name",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "value": 1,
+                  "name": "Mode",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "opc",
+                  "expression": "",
+                  "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/StandardPump/Flow",
+                  "dataType": "Float8",
+                  "value": 100.0,
+                  "opcServer": "Ignition OPC UA Server",
+                  "name": "Flow",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "value": true,
+                  "name": "InService",
+                  "tagType": "AtomicTag"
+                }
+              ]
+            },
+            {
+              "name": "Valves",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "V3",
+                  "typeId": "Exchange/WaterPack/Valve",
+                  "parameters": {
+                    "name": {
+                      "dataType": "String",
+                      "value": "V3"
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Valves/V3/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "FillPercent",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "V2",
+                  "typeId": "Exchange/WaterPack/Valve",
+                  "parameters": {
+                    "name": {
+                      "dataType": "String",
+                      "value": "V2"
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder"
+                    },
+                    {
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "FillPercent",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Valves/V2/State",
+                      "value": 1,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                },
+                {
+                  "name": "V1",
+                  "typeId": "Exchange/WaterPack/Valve",
+                  "parameters": {
+                    "name": {
+                      "dataType": "String",
+                      "value": "V1"
+                    }
+                  },
+                  "tagType": "UdtInstance",
+                  "tags": [
+                    {
+                      "name": "StateName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "valueSource": "opc",
+                      "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Demo/Valves/V1/State",
+                      "value": 0,
+                      "opcServer": "Ignition OPC UA Server",
+                      "name": "State",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "InService",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Setpoints",
+                      "tagType": "Folder"
+                    },
+                    {
+                      "name": "ModeName",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "FillPercent",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Name",
+                      "tagType": "AtomicTag"
+                    },
+                    {
+                      "name": "Mode",
+                      "tagType": "AtomicTag"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Valve",
+              "typeId": "Exchange/WaterPack/Valve",
+              "parameters": {
+                "name": {
+                  "dataType": "String",
+                  "value": "testValve"
+                }
+              },
+              "tagType": "UdtInstance",
+              "tags": [
+                {
+                  "name": "Name",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "name": "InService",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "value": 50.0,
+                  "name": "FillPercent",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "StateName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "value": 1,
+                  "name": "State",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "name": "Setpoints",
+                  "tagType": "Folder"
+                },
+                {
+                  "name": "ModeName",
+                  "tagType": "AtomicTag"
+                },
+                {
+                  "valueSource": "memory",
+                  "value": 0,
+                  "name": "Mode",
+                  "tagType": "AtomicTag"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sim",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "valueSource": "opc",
+              "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][Controls]/programCounter",
+              "name": "Program Counter",
+              "tagType": "AtomicTag",
+              "opcServer": "Ignition OPC UA Server"
+            },
+            {
+              "valueSource": "opc",
+              "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][Controls]/reset",
+              "dataType": "Boolean",
+              "name": "Reset",
+              "tagType": "AtomicTag",
+              "opcServer": "Ignition OPC UA Server"
+            },
+            {
+              "valueSource": "opc",
+              "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][default]Exchange/WaterPack/Sim/Ramper",
+              "name": "Ramp",
+              "tagType": "AtomicTag",
+              "opcServer": "Ignition OPC UA Server"
+            },
+            {
+              "valueSource": "opc",
+              "opcItemPath": "ns\u003d1;s\u003d[water-pack-sim][Controls]/repeat",
+              "dataType": "Boolean",
+              "name": "Repeat",
+              "tagType": "AtomicTag",
+              "opcServer": "Ignition OPC UA Server"
+            }
+          ]
+        },
+        {
+          "name": "Meta",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "valueSource": "memory",
+              "dataType": "String",
+              "sourceTagPath": "water-industry-pack",
+              "name": "TagGatewayName",
+              "value": "water-industry-pack",
+              "tagType": "AtomicTag"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

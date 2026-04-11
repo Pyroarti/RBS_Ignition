@@ -1,0 +1,7 @@
+{
+  "title": "1 Testing",
+  "description": "För att testa programmet",
+  "enabled": true,
+  "inheritable": true,
+  "parent": "core"
+}

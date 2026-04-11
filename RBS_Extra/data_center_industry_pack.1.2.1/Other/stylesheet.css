@@ -1,0 +1,6 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+#chartRangeSelectorRemoveFill .ia_areaChart > g > g > g > path {
+	fill: transparent !important;
+	stroke-width: 3 !important;
+}

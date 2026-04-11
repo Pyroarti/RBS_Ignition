@@ -1,0 +1,17 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "RBS",
+      "timestamp": "2026-04-11T18:02:05Z"
+    },
+    "lastModificationSignature": "d15ae449c0265a75f729b6aff55aaa2de2ec9392cd47bf06c3323294805f9da4",
+    "enabled": true
+  }
+}

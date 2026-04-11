@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "logo.png"
+  ],
+  "attributes": {
+    "width": 1024,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "RBS",
+      "timestamp": "2026-04-11T20:17:40Z"
+    },
+    "size": 245837,
+    "lastModificationSignature": "c6e43f7ea257563ce3d4716289867886aa9aff43284e3ee04de60afcec68da8a",
+    "height": 1024
+  }
+}
