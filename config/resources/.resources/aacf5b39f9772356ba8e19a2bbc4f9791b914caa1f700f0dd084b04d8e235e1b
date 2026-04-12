@@ -1,0 +1,61 @@
+{
+  "profile": {
+    "readOnly": false,
+    "type": "com.inductiveautomation.OpcUaServerType"
+  },
+  "settings": {
+    "advanced": {
+      "acknowledgeTimeout": 5000,
+      "browseOrigin": "OBJECTS_FOLDER",
+      "connectTimeout": 5000,
+      "deprecatedDataTypeDictionarySupport": false,
+      "maxArrayLength": 2147483647,
+      "maxMessageSize": 33554432,
+      "maxNotificationsPerPublish": 65535,
+      "maxPendingPublishRequests": 2,
+      "maxPerOperation": 8192,
+      "maxReferencesPerNode": 8192,
+      "maxStringLength": 2147483647,
+      "requestTimeout": 60000,
+      "sessionTimeout": 120000,
+      "timestampSource": "OPC_PREFER_SOURCE"
+    },
+    "authentication": {
+      "authenticationType": "ANONYMOUS"
+    },
+    "configVersion": 2,
+    "endpoint": {
+      "discoveryUrl": "opc.tcp://0.0.0.0:4841/scada-pumpstation/",
+      "endpointUrl": "opc.tcp://0.0.0.0:4841/scada-pumpstation/",
+      "hostOverride": "",
+      "securityMode": "None",
+      "securityPolicy": "None"
+    },
+    "failover": {
+      "discoveryUrl": "",
+      "enabled": false,
+      "endpointUrl": "",
+      "hostOverride": "",
+      "threshold": 1
+    },
+    "keepAlive": {
+      "failuresAllowed": 1,
+      "interval": 15000,
+      "timeout": 10000
+    },
+    "security": {
+      "certificateValidationEnabled": true,
+      "keyStoreAlias": "client",
+      "keyStoreAliasPassword": {
+        "data": {
+          "ciphertext": "3_l4jgnZWcI55g",
+          "encrypted_key": "l6qzQBXeyVmcR0iDDbXrmSP0cKc1UcRQmEHsd-tvMJh4NbS643ZUWA",
+          "iv": "Je7e2c7HdPkcV2cf",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzc2MDExNzQ2LCJ6aXAiOiJERUYifQ",
+          "tag": "khkDL-96YrNii1jQZivHIg"
+        },
+        "type": "Embedded"
+      }
+    }
+  }
+}

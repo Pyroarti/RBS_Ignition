@@ -1,0 +1,66 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d151",
+    "dataType": "Float4",
+    "name": "Value",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d154",
+    "dataType": "Boolean",
+    "name": "LowAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d155",
+    "dataType": "Boolean",
+    "name": "HighAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d156",
+    "dataType": "Float4",
+    "name": "EngLow",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d153",
+    "dataType": "Float4",
+    "name": "HighLimit",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d150",
+    "dataType": "String",
+    "name": "Description",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d152",
+    "dataType": "Float4",
+    "name": "LowLimit",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d157",
+    "dataType": "Float4",
+    "name": "EngHigh",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  }
+]

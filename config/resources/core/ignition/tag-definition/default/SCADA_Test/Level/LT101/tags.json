@@ -1,0 +1,48 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d253",
+    "dataType": "Boolean",
+    "name": "LowAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d251",
+    "dataType": "Float4",
+    "name": "LowLimit",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d254",
+    "dataType": "Boolean",
+    "name": "HighAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d252",
+    "dataType": "Float4",
+    "name": "HighLimit",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 1,
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d250",
+    "tagType": "AtomicTag",
+    "dataType": "Float4",
+    "historyProvider": "Historian",
+    "historyMaxAgeUnits": "SEC",
+    "name": "Value",
+    "historyEnabled": true,
+    "sampleMode": "Periodic",
+    "historySampleRate": 1,
+    "opcServer": "Generall"
+  }
+]

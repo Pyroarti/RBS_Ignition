@@ -1,0 +1,336 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Pump"
+        },
+        "position": {
+          "height": 107,
+          "rotate": {
+            "anchor": "13% -69%"
+          },
+          "width": 135,
+          "x": 1043.98,
+          "y": 404.7866273803711
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M431,147 l6,18 3,19 2,19 1,18 -1,23 -3,22 -6,21 -7,21 -10,19 -11,18 -12,17 -15,16 -15,14 -17,13 -19,11 -19,10 -20,7 -21,6 -22,3 -23,1 -23,-1 -22,-3 -21,-6 -20,-7 -20,-10 -18,-11 -17,-13 -16,-14 -14,-16 -13,-17 -11,-18 -9,-19 -8,-21 -5,-21 -4,-22 -1,-23 1,-23 4,-22 5,-21 8,-20 9,-19 11,-19 13,-17 14,-15 16,-15 17,-12 18,-11 20,-10 20,-7 21,-6 22,-3 23,-1 369,0 0,147 -160,0z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 591 443"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Valve"
+        },
+        "position": {
+          "height": 74,
+          "width": 118,
+          "x": 759.8887531738281,
+          "y": 420.85011474609377
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M0 228l456-228 0 228-456-228 0 228z",
+              "fill": {
+                "paint": "#A4A4A4"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 456 228"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "TimeSeriesChart"
+        },
+        "position": {
+          "height": 320,
+          "width": 327,
+          "x": 355,
+          "y": 199
+        },
+        "propConfig": {
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "aggregate": "Average",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "30",
+                  "mostRecentUnits": "MIN"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": [
+                  {
+                    "path": "[Historian/Ignition-Main-PC:default]SCADA_Test/Level/LT101/Value"
+                  }
+                ],
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          }
+        },
+        "props": {
+          "defaultStyles": {
+            "colorScheme": "Paired",
+            "colors": [
+              "#000000"
+            ],
+            "normal": {
+              "stroke": {
+                "width": 2
+              }
+            }
+          },
+          "enablePanZoom": false,
+          "plots": [
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "#E51A1A00",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "",
+                    "visible": false
+                  },
+                  "max": 100,
+                  "min": 0,
+                  "name": "Y",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "#C0C0C000",
+                    "count": 2,
+                    "label": {
+                      "font": {
+                        "color": "#C0C0C000",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 0
+                }
+              ],
+              "markers": [],
+              "relativeWeight": 1,
+              "trends": [
+                {
+                  "axis": "Y",
+                  "baselines": [],
+                  "breakLine": true,
+                  "columns": [],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Level",
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            }
+          ],
+          "series": [
+            {
+              "name": "Level"
+            }
+          ],
+          "timeAxis": {
+            "color": "#FA2C2C00",
+            "grid": {
+              "color": "#C0C0C000"
+            },
+            "height": 0,
+            "tick": {
+              "color": "#C0C0C000",
+              "label": {
+                "font": {
+                  "color": "#C0C0C000"
+                }
+              }
+            },
+            "visible": false
+          },
+          "timeRange": {
+            "visible": false
+          }
+        },
+        "type": "ia.chart.timeseries"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator"
+        },
+        "position": {
+          "height": 329,
+          "width": 71,
+          "x": 656.5,
+          "y": 193.31
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "indicatorColor": "#C0C0C000",
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null,
+          "reverseIndicator": true
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Reactor_0"
+        },
+        "position": {
+          "height": 379,
+          "width": 414,
+          "x": 346,
+          "y": 168
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M391 446l0-393-18-11-10-6-11-5-11-4-11-5-12-3-13-4-13-3-13-3-13-2-14-2-14-2-14-1-14-1-14 0-14 0-15 1-14 1-14 2-13 2-14 2-13 3-13 3-12 4-12 3-12 5-21 9-19 11-9 6 0 394 18 11 20 11 11 4 12 5 12 3 12 4 13 3 13 3 14 2 13 2 14 2 14 1 15 1 14 0 14 0 14-1 14-1 14-2 14-2 13-2 13-3 13-4 13-3 12-4 11-5 11-4 11-5 19-11 9-6z",
+              "fill": {
+                "opacity": 0,
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            },
+            {
+              "d": "M0,445 l393,0",
+              "fill": {
+                "paint": "transparent"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            },
+            {
+              "d": "M0,52 l393,0",
+              "fill": {
+                "paint": "transparent"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 393 500"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "pipes": [
+        {
+          "appearance": "auto",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe",
+          "origin": {
+            "connections": [
+              {
+                "x": 941.89,
+                "y": 581
+              }
+            ],
+            "x": 807.89,
+            "y": 581
+          },
+          "start": "none",
+          "stroke": "",
+          "visible": true,
+          "width": 5
+        }
+      ]
+    },
+    "type": "ia.container.coord"
+  }
+}

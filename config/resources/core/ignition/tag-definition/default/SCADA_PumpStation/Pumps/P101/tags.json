@@ -1,0 +1,66 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d22",
+    "dataType": "Boolean",
+    "name": "Available",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d21",
+    "dataType": "Boolean",
+    "name": "RunningFb",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d17",
+    "dataType": "Int4",
+    "name": "Status",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d19",
+    "dataType": "Boolean",
+    "name": "StopCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d18",
+    "dataType": "Boolean",
+    "name": "StartCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d16",
+    "dataType": "String",
+    "name": "Description",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d20",
+    "dataType": "Boolean",
+    "name": "AutoMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d23",
+    "dataType": "Boolean",
+    "name": "Fault",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  }
+]

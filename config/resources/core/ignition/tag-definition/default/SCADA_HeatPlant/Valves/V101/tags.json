@@ -1,0 +1,82 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d72",
+    "dataType": "Boolean",
+    "name": "OpenFb",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d71",
+    "dataType": "Float4",
+    "name": "PositionFb",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d68",
+    "dataType": "Boolean",
+    "name": "OpenCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d67",
+    "dataType": "Boolean",
+    "name": "AutoMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d70",
+    "dataType": "Float4",
+    "name": "PositionCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d73",
+    "dataType": "Boolean",
+    "name": "ClosedFb",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d65",
+    "dataType": "String",
+    "name": "Description",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d74",
+    "dataType": "Boolean",
+    "name": "Fault",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d66",
+    "dataType": "Int4",
+    "name": "Status",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d69",
+    "dataType": "Boolean",
+    "name": "CloseCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  }
+]

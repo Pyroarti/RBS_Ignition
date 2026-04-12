@@ -1,0 +1,66 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d13",
+    "dataType": "Float4",
+    "name": "InflowRate",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d12",
+    "dataType": "Float4",
+    "name": "LevelHighHighSP",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d9",
+    "dataType": "Int4",
+    "name": "DutyPump",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d7",
+    "dataType": "Int4",
+    "name": "PlantMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d11",
+    "dataType": "Float4",
+    "name": "LevelHighSP",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d8",
+    "dataType": "Boolean",
+    "name": "CommonAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d10",
+    "dataType": "Float4",
+    "name": "LevelLowSP",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:pumpstation;i\u003d14",
+    "dataType": "Float4",
+    "name": "PumpCapacity",
+    "tagType": "AtomicTag",
+    "opcServer": "Pumpstation"
+  }
+]

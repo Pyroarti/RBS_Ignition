@@ -1,0 +1,42 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d10",
+    "dataType": "Boolean",
+    "name": "HeatDemand",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d12",
+    "dataType": "Float4",
+    "name": "SupplyTempSP",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d9",
+    "dataType": "Int4",
+    "name": "PlantMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d11",
+    "dataType": "Boolean",
+    "name": "CommonAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d13",
+    "dataType": "Float4",
+    "name": "OutsideTemp",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  }
+]

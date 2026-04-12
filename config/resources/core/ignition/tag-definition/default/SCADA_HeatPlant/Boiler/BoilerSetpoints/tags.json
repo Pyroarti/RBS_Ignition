@@ -1,0 +1,10 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d94",
+    "dataType": "Float4",
+    "name": "TempSP",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  }
+]

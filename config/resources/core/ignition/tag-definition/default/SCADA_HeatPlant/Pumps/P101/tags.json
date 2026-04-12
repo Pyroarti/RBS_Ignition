@@ -1,0 +1,74 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d53",
+    "dataType": "Boolean",
+    "name": "Fault",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d45",
+    "dataType": "String",
+    "name": "Description",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d48",
+    "dataType": "Boolean",
+    "name": "StopCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d47",
+    "dataType": "Boolean",
+    "name": "StartCmd",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d50",
+    "dataType": "Boolean",
+    "name": "EnableInAuto",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d51",
+    "dataType": "Boolean",
+    "name": "RunningFb",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d52",
+    "dataType": "Boolean",
+    "name": "Available",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d49",
+    "dataType": "Boolean",
+    "name": "AutoMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:heatplant;i\u003d46",
+    "dataType": "Int4",
+    "name": "Status",
+    "tagType": "AtomicTag",
+    "opcServer": "Värmeverk"
+  }
+]
