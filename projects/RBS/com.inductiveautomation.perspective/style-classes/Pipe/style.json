@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "borderStyle": "none",
+      "stroke": "#FFFFFF00",
+      "strokeWidth": "2",
+      "fill": "#000000"
+    }
+  }
+}
