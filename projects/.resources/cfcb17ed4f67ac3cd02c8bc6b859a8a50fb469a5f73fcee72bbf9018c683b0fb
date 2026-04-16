@@ -9,9 +9,9 @@
     "/charts": {
       "viewPath": "Page/Charts"
     },
-    "/heating": {
+    "/general": {
       "title": "",
-      "viewPath": "Page/Heating"
+      "viewPath": "Page/General"
     }
   },
   "sharedDocks": {
