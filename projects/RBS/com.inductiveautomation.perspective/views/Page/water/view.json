@@ -1,0 +1,1479 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Pump"
+        },
+        "position": {
+          "height": 90,
+          "rotate": {
+            "anchor": "13% -69%"
+          },
+          "width": 114,
+          "x": 281.98,
+          "y": 273.77
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M431,147 l6,18 3,19 2,19 1,18 -1,23 -3,22 -6,21 -7,21 -10,19 -11,18 -12,17 -15,16 -15,14 -17,13 -19,11 -19,10 -20,7 -21,6 -22,3 -23,1 -23,-1 -22,-3 -21,-6 -20,-7 -20,-10 -18,-11 -17,-13 -16,-14 -14,-16 -13,-17 -11,-18 -9,-19 -8,-21 -5,-21 -4,-22 -1,-23 1,-23 4,-22 5,-21 8,-20 9,-19 11,-19 13,-17 14,-15 16,-15 17,-12 18,-11 20,-10 20,-7 21,-6 22,-3 23,-1 369,0 0,147 -160,0z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 591 443"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Valve"
+        },
+        "position": {
+          "height": 66,
+          "width": 106,
+          "x": 62.89,
+          "y": 129.13
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M0 228l456-228 0 228-456-228 0 228z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 456 228"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "TimeSeriesChart"
+        },
+        "position": {
+          "height": 264,
+          "width": 270,
+          "x": 586.99,
+          "y": 129.347
+        },
+        "propConfig": {
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "aggregate": "Average",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "30",
+                  "mostRecentUnits": "MIN"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": [
+                  {
+                    "path": "[Historian/Ignition-Main-PC:default]SCADA_Test/Level/LT101/Value"
+                  }
+                ],
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          }
+        },
+        "props": {
+          "defaultStyles": {
+            "colorScheme": "Paired",
+            "colors": [
+              "#000000"
+            ],
+            "normal": {
+              "stroke": {
+                "width": 2
+              }
+            }
+          },
+          "enablePanZoom": false,
+          "plots": [
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "#E51A1A00",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "",
+                    "visible": false
+                  },
+                  "max": 100,
+                  "min": 0,
+                  "name": "Y",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "#C0C0C000",
+                    "count": 2,
+                    "label": {
+                      "font": {
+                        "color": "#C0C0C000",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 0
+                }
+              ],
+              "markers": [],
+              "relativeWeight": 1,
+              "trends": [
+                {
+                  "axis": "Y",
+                  "baselines": [],
+                  "breakLine": true,
+                  "columns": [],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Level",
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            }
+          ],
+          "series": [
+            {
+              "name": "Level"
+            }
+          ],
+          "timeAxis": {
+            "color": "#FA2C2C00",
+            "grid": {
+              "color": "#C0C0C000"
+            },
+            "height": 0,
+            "tick": {
+              "color": "#C0C0C000",
+              "label": {
+                "font": {
+                  "color": "#C0C0C000"
+                }
+              }
+            },
+            "visible": false
+          },
+          "timeRange": {
+            "visible": false
+          }
+        },
+        "type": "ia.chart.timeseries"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator"
+        },
+        "position": {
+          "height": 256,
+          "width": 71,
+          "x": 821.98,
+          "y": 125.367
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "indicatorColor": "#C0C0C000",
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null,
+          "reverseIndicator": true
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Reactor_0"
+        },
+        "position": {
+          "height": 292,
+          "width": 333,
+          "x": 585,
+          "y": 108.057
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M391 446l0-393-18-11-10-6-11-5-11-4-11-5-12-3-13-4-13-3-13-3-13-2-14-2-14-2-14-1-14-1-14 0-14 0-15 1-14 1-14 2-13 2-14 2-13 3-13 3-12 4-12 3-12 5-21 9-19 11-9 6 0 394 18 11 20 11 11 4 12 5 12 3 12 4 13 3 13 3 14 2 13 2 14 2 14 1 15 1 14 0 14 0 14-1 14-1 14-2 14-2 13-2 13-3 13-4 13-3 12-4 11-5 11-4 11-5 19-11 9-6z",
+              "fill": {
+                "opacity": 0,
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            },
+            {
+              "d": "M0,445 l393,0",
+              "fill": {
+                "paint": "#FF0000"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            },
+            {
+              "d": "M0,52 l393,0",
+              "fill": {
+                "paint": "transparent"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 393 500"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Valve_0"
+        },
+        "position": {
+          "height": 66,
+          "width": 106,
+          "x": 59.89,
+          "y": 476.13
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M0 228l456-228 0 228-456-228 0 228z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 456 228"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Pump_0"
+        },
+        "position": {
+          "height": 90,
+          "rotate": {
+            "anchor": "13% -69%"
+          },
+          "width": 114,
+          "x": 279.98,
+          "y": 619.77
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M431,147 l6,18 3,19 2,19 1,18 -1,23 -3,22 -6,21 -7,21 -10,19 -11,18 -12,17 -15,16 -15,14 -17,13 -19,11 -19,10 -20,7 -21,6 -22,3 -23,1 -23,-1 -22,-3 -21,-6 -20,-7 -20,-10 -18,-11 -17,-13 -16,-14 -14,-16 -13,-17 -11,-18 -9,-19 -8,-21 -5,-21 -4,-22 -1,-23 1,-23 4,-22 5,-21 8,-20 9,-19 11,-19 13,-17 14,-15 16,-15 17,-12 18,-11 20,-10 20,-7 21,-6 22,-3 23,-1 369,0 0,147 -160,0z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 591 443"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Reactor_1"
+        },
+        "position": {
+          "height": 292,
+          "width": 333,
+          "x": 583,
+          "y": 455.06
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M391 446l0-393-18-11-10-6-11-5-11-4-11-5-12-3-13-4-13-3-13-3-13-2-14-2-14-2-14-1-14-1-14 0-14 0-15 1-14 1-14 2-13 2-14 2-13 3-13 3-12 4-12 3-12 5-21 9-19 11-9 6 0 394 18 11 20 11 11 4 12 5 12 3 12 4 13 3 13 3 14 2 13 2 14 2 14 1 15 1 14 0 14 0 14-1 14-1 14-2 14-2 13-2 13-3 13-4 13-3 12-4 11-5 11-4 11-5 19-11 9-6z",
+              "fill": {
+                "opacity": 0,
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            },
+            {
+              "d": "M0,445 l393,0",
+              "fill": {
+                "paint": "transparent"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            },
+            {
+              "d": "M0,52 l393,0",
+              "fill": {
+                "paint": "transparent"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "3"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 393 500"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "TimeSeriesChart_0"
+        },
+        "position": {
+          "height": 264,
+          "width": 270,
+          "x": 584.99,
+          "y": 476.35
+        },
+        "propConfig": {
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "aggregate": "Average",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "30",
+                  "mostRecentUnits": "MIN"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": [
+                  {
+                    "path": "[Historian/Ignition-Main-PC:default]SCADA_Test/Level/LT101/Value"
+                  }
+                ],
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          }
+        },
+        "props": {
+          "defaultStyles": {
+            "colorScheme": "Paired",
+            "colors": [
+              "#000000"
+            ],
+            "normal": {
+              "stroke": {
+                "width": 2
+              }
+            }
+          },
+          "enablePanZoom": false,
+          "plots": [
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "#E51A1A00",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "",
+                    "visible": false
+                  },
+                  "max": 100,
+                  "min": 0,
+                  "name": "Y",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "#C0C0C000",
+                    "count": 2,
+                    "label": {
+                      "font": {
+                        "color": "#C0C0C000",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 0
+                }
+              ],
+              "markers": [],
+              "relativeWeight": 1,
+              "trends": [
+                {
+                  "axis": "Y",
+                  "baselines": [],
+                  "breakLine": true,
+                  "columns": [],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Level",
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            }
+          ],
+          "series": [
+            {
+              "name": "Level"
+            }
+          ],
+          "timeAxis": {
+            "color": "#FA2C2C00",
+            "grid": {
+              "color": "#C0C0C000"
+            },
+            "height": 0,
+            "tick": {
+              "color": "#C0C0C000",
+              "label": {
+                "font": {
+                  "color": "#C0C0C000"
+                }
+              }
+            },
+            "visible": false
+          },
+          "timeRange": {
+            "visible": false
+          }
+        },
+        "type": "ia.chart.timeseries"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_0"
+        },
+        "position": {
+          "height": 256,
+          "width": 71,
+          "x": 819.98,
+          "y": 472.37
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "indicatorColor": "#C0C0C000",
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null,
+          "reverseIndicator": true
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_1",
+          "tooltip": {
+            "text": "test"
+          }
+        },
+        "position": {
+          "height": 223,
+          "width": 71,
+          "x": 210.99826477050783,
+          "y": 562.381
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 222.48826477050784,
+          "y": 539.1669999999999
+        },
+        "props": {
+          "text": " Amp"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_2",
+          "tooltip": {
+            "text": "test"
+          }
+        },
+        "position": {
+          "height": 223,
+          "width": 71,
+          "x": 211,
+          "y": 209.38
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 222.49,
+          "y": 186.16999999999996
+        },
+        "props": {
+          "text": " Amp"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 346.46,
+          "y": 241.93
+        },
+        "props": {
+          "text": " AP101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 339.4332322692871,
+          "y": 592.2670666503907
+        },
+        "props": {
+          "text": " AP102"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 91.8361,
+          "y": 113.18847082519531
+        },
+        "props": {
+          "text": "AV101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 83.21611770629883,
+          "y": 460.31725830078125
+        },
+        "props": {
+          "text": "AV102"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 722.4391259765625,
+          "y": 454.7480629882813
+        },
+        "props": {
+          "text": "TT101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 732.44,
+          "y": 716.516
+        },
+        "props": {
+          "text": "24h"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 732.44,
+          "y": 368.52
+        },
+        "props": {
+          "text": "24h"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 722.44,
+          "y": 106.75
+        },
+        "props": {
+          "text": "TT101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 491.49,
+          "y": 441.17
+        },
+        "props": {
+          "text": " PT102"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_4",
+          "tooltip": {
+            "text": "test"
+          }
+        },
+        "position": {
+          "height": 173,
+          "width": 71,
+          "x": 480,
+          "y": 470.38
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "label": {
+            "visible": true
+          },
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_5",
+          "tooltip": {
+            "text": "test"
+          }
+        },
+        "position": {
+          "height": 173,
+          "width": 71,
+          "x": 480,
+          "y": 122.38
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "label": {
+            "visible": true
+          },
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Label_11"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 491.49,
+          "y": 93.17000000000002
+        },
+        "props": {
+          "text": " PT101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Pump_1"
+        },
+        "position": {
+          "height": 90,
+          "rotate": {
+            "anchor": "13% -69%"
+          },
+          "width": 114,
+          "x": 1155.98,
+          "y": 599.6107805175782
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M431,147 l6,18 3,19 2,19 1,18 -1,23 -3,22 -6,21 -7,21 -10,19 -11,18 -12,17 -15,16 -15,14 -17,13 -19,11 -19,10 -20,7 -21,6 -22,3 -23,1 -23,-1 -22,-3 -21,-6 -20,-7 -20,-10 -18,-11 -17,-13 -16,-14 -14,-16 -13,-17 -11,-18 -9,-19 -8,-21 -5,-21 -4,-22 -1,-23 1,-23 4,-22 5,-21 8,-20 9,-19 11,-19 13,-17 14,-15 16,-15 17,-12 18,-11 20,-10 20,-7 21,-6 22,-3 23,-1 369,0 0,147 -160,0z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 591 443"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 1220.46,
+          "y": 567.7707805175781
+        },
+        "props": {
+          "text": " AP101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_12"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 1562.49,
+          "y": 417.5592059326172
+        },
+        "props": {
+          "text": "FT201"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_6",
+          "tooltip": {
+            "text": "test"
+          }
+        },
+        "position": {
+          "height": 173,
+          "width": 71,
+          "x": 1551,
+          "y": 446.7692059326172
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "label": {
+            "visible": true
+          },
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 1466,
+          "y": 492.119
+        },
+        "props": {
+          "image": {
+            "position": "center"
+          },
+          "text": "Reg.",
+          "textStyle": {
+            "fontSize": 20
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_13"
+        },
+        "position": {
+          "height": 32,
+          "width": 65,
+          "x": 1220.46,
+          "y": 823.77
+        },
+        "props": {
+          "text": " AP101"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Pump_2"
+        },
+        "position": {
+          "height": 90,
+          "rotate": {
+            "anchor": "13% -69%"
+          },
+          "width": 114,
+          "x": 1155.98,
+          "y": 855.61
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M431,147 l6,18 3,19 2,19 1,18 -1,23 -3,22 -6,21 -7,21 -10,19 -11,18 -12,17 -15,16 -15,14 -17,13 -19,11 -19,10 -20,7 -21,6 -22,3 -23,1 -23,-1 -22,-3 -21,-6 -20,-7 -20,-10 -18,-11 -17,-13 -16,-14 -14,-16 -13,-17 -11,-18 -9,-19 -8,-21 -5,-21 -4,-22 -1,-23 1,-23 4,-22 5,-21 8,-20 9,-19 11,-19 13,-17 14,-15 16,-15 17,-12 18,-11 20,-10 20,-7 21,-6 22,-3 23,-1 369,0 0,147 -160,0z",
+              "fill": {
+                "paint": "#c0c0c0"
+              },
+              "name": "path",
+              "stroke": {
+                "paint": "#4c4c4c",
+                "width": "2"
+              },
+              "type": "path"
+            }
+          ],
+          "viewBox": "0 0 591 443"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 1466,
+          "y": 748.12
+        },
+        "props": {
+          "image": {
+            "position": "center"
+          },
+          "text": "Reg.",
+          "textStyle": {
+            "fontSize": 20
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_14"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 1562.49,
+          "y": 673.56
+        },
+        "props": {
+          "text": "FT201"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator_7",
+          "tooltip": {
+            "text": "test"
+          }
+        },
+        "position": {
+          "height": 173,
+          "width": 71,
+          "x": 1551,
+          "y": 702.77
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "label": {
+            "visible": true
+          },
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null
+        },
+        "type": "ia.display.moving-analog-indicator"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "pipes": [
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_0",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "x": 2.89,
+                    "y": 162.13
+                  }
+                ],
+                "x": 49.89,
+                "y": 162.13
+              }
+            ],
+            "x": 62.89,
+            "y": 162.13
+          },
+          "start": "none",
+          "stroke": "#4C4C4C",
+          "visible": true,
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_2",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "connections": [],
+                    "x": 168.89,
+                    "y": 162.13
+                  }
+                ],
+                "x": 338.98,
+                "y": 162.13
+              }
+            ],
+            "x": 338.98,
+            "y": 274.77
+          },
+          "start": "none",
+          "stroke": "#4C4C4C",
+          "visible": true,
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_3",
+          "origin": {
+            "connections": [
+              {
+                "x": 637,
+                "y": 292
+              }
+            ],
+            "x": 396,
+            "y": 292
+          },
+          "start": "none",
+          "stroke": "#4C4C4C",
+          "visible": true,
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_1",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "x": -0.11,
+                    "y": 510.13
+                  }
+                ],
+                "x": 46.89,
+                "y": 510.13
+              }
+            ],
+            "x": 59.89,
+            "y": 510.13
+          },
+          "start": "none",
+          "stroke": "#4C4C4C",
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_4",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "connections": [],
+                    "x": 165.89,
+                    "y": 510.13
+                  }
+                ],
+                "x": 335.98,
+                "y": 510.13
+              }
+            ],
+            "x": 335.98,
+            "y": 622.77
+          },
+          "start": "none",
+          "stroke": "#4C4C4C",
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_5",
+          "origin": {
+            "connections": [
+              {
+                "x": 634,
+                "y": 640
+              }
+            ],
+            "x": 393,
+            "y": 640
+          },
+          "start": "none",
+          "stroke": "#4C4C4C",
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe",
+          "origin": {
+            "connections": [
+              {
+                "x": 866,
+                "y": 644.61
+              }
+            ],
+            "x": 1155.98,
+            "y": 644.61
+          },
+          "start": "none",
+          "stroke": "",
+          "visible": true,
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_6",
+          "origin": {
+            "connections": [
+              {
+                "x": 1918,
+                "y": 615.77
+              }
+            ],
+            "x": 1269,
+            "y": 615.77
+          },
+          "start": "none",
+          "stroke": "",
+          "visible": true,
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_7",
+          "origin": {
+            "connections": [
+              {
+                "x": 1918,
+                "y": 615.77
+              }
+            ],
+            "x": 1269,
+            "y": 615.77
+          },
+          "start": "none",
+          "stroke": "",
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "arrowOutward",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "dashed",
+          "name": "pipe_9",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "x": 1551,
+                    "y": 533.27
+                  }
+                ],
+                "x": 1212.98,
+                "y": 533.27
+              }
+            ],
+            "x": 1212.98,
+            "y": 599.61
+          },
+          "start": "arrowInward",
+          "stroke": "",
+          "visible": true,
+          "width": 2
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_10",
+          "origin": {
+            "connections": [
+              {
+                "x": 1919,
+                "y": 871.77
+              }
+            ],
+            "x": 1270,
+            "y": 871.77
+          },
+          "start": "none",
+          "stroke": "",
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_11",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 864,
+                        "y": 645.61
+                      },
+                      {
+                        "connections": [],
+                        "x": 1153.98,
+                        "y": 645.61
+                      }
+                    ],
+                    "x": 1062.98,
+                    "y": 645.61
+                  }
+                ],
+                "x": 1062.98,
+                "y": 901.61
+              }
+            ],
+            "x": 1153.98,
+            "y": 901.61
+          },
+          "start": "none",
+          "stroke": "",
+          "visible": true,
+          "width": 3
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "arrowOutward",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "dashed",
+          "name": "pipe_12",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "x": 1549,
+                    "y": 789.27
+                  }
+                ],
+                "x": 1210.98,
+                "y": 789.27
+              }
+            ],
+            "x": 1210.98,
+            "y": 855.61
+          },
+          "start": "arrowInward",
+          "stroke": "",
+          "width": 2
+        },
+        {
+          "appearance": "p\u0026id",
+          "end": "arrowOutward",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "dashed",
+          "name": "pipe_13",
+          "origin": {
+            "connections": [
+              {
+                "connections": [
+                  {
+                    "x": 1551,
+                    "y": 533.27
+                  }
+                ],
+                "x": 1212.98,
+                "y": 533.27
+              }
+            ],
+            "x": 1212.98,
+            "y": 599.61
+          },
+          "start": "arrowInward",
+          "stroke": "",
+          "width": 2
+        }
+      ],
+      "style": {
+        "classes": "Pipe"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

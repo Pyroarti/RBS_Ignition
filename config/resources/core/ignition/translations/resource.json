@@ -3,15 +3,18 @@
   "version": 1,
   "restricted": false,
   "overridable": true,
-  "files": [],
+  "files": [
+    "sv.json",
+    "en.json"
+  ],
   "attributes": {
     "lastModification": {
-      "actor": "8.3-migration",
-      "timestamp": "2026-04-11T17:20:39Z"
+      "actor": "unknown",
+      "timestamp": "2026-04-19T19:51:58Z"
     },
     "ignorePunctuation": false,
     "caseInsensitive": false,
-    "lastModificationSignature": "04e4d57023ab3ed939a8c4b5a149f214dc5e7d1e145f2ebe8845de1eac80788d",
+    "lastModificationSignature": "9a89e4fc0f57e0d0ef28c90abebcb54d32be4cf069f99186139e5b1b436aa676",
     "ignoreWhitespace": false,
     "ignoreTags": false
   }

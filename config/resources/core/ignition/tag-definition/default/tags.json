@@ -1,0 +1,9 @@
+[
+  {
+    "valueSource": "memory",
+    "valuePersistence": "None",
+    "name": "Pipe_thicc",
+    "defaultValue": 4,
+    "tagType": "AtomicTag"
+  }
+]
