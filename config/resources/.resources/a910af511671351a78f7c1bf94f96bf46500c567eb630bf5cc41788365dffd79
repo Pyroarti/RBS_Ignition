@@ -1,0 +1,42 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d301",
+    "dataType": "Float4",
+    "name": "HighLimit",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d299",
+    "dataType": "Float4",
+    "name": "Value",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d300",
+    "dataType": "Float4",
+    "name": "LowLimit",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d302",
+    "dataType": "Boolean",
+    "name": "LowAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d303",
+    "dataType": "Boolean",
+    "name": "HighAlarm",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  }
+]

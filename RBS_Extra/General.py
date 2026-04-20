@@ -249,7 +249,7 @@ async def main():
             101,
             110,
             0.0,
-            20.0,
+            16.0,
             2.0,
             18.0,
             0.2,
@@ -283,6 +283,22 @@ async def main():
             20.0,
             80.0,
             1.0,
+        )
+    )
+
+    analog_points.update(
+        await add_analog_group(
+            scada_root,
+            idx,
+            "Ampere",
+            "Amp",
+            101,
+            105,
+            0.0,
+            10.0,
+            2.0,
+            9.0,
+            0.1,
         )
     )
 

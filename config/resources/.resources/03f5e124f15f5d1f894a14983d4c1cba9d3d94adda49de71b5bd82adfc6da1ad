@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Valve",
+    "typeId": "",
+    "parameters": {
+      "Control": {
+        "dataType": "Integer",
+        "value": 0
+      },
+      "Counter": {
+        "dataType": "Integer",
+        "value": null
+      }
+    },
+    "tagType": "UdtType"
+  }
+]
