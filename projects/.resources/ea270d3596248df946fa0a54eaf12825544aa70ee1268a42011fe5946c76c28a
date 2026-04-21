@@ -1,0 +1,18 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1s",
+      "direction": "normal",
+      "iterationCount": "3",
+      "timingFunction": "ease-in-out",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "#AAAAAA"
+        },
+        "100%": {
+          "backgroundColor": "#AAAAAA00"
+        }
+      }
+    }
+  }
+}

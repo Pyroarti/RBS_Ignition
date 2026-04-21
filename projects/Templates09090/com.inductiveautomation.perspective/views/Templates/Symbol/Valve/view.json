@@ -1,0 +1,234 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Valve 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 110
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Valve"
+        },
+        "position": {
+          "height": 1,
+          "width": 1
+        },
+        "propConfig": {
+          "props.label.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({parent.custom.tagPaths.Name})"
+              },
+              "overlayOptOut": true,
+              "type": "expr"
+            }
+          },
+          "props.state": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "childrenAlarms": "{parent.custom.valveAlarms}",
+                  "closeStatus": "{parent.custom.tagValues.CloseStatus}",
+                  "openStatus": "{parent.custom.tagValues.OpenStatus}"
+                },
+                "waitOnAll": false
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\tif len(value[\u0027childrenAlarms\u0027])\u003e0:\n\t\tret \u003d \u0027failedToOpen\u0027\n\telse:\n\t\tif value[\u0027openStatus\u0027]:\n\t\t\tret \u003d \u0027open\u0027\n\t\telse:\n\t\t\tret \u003d \u0027closed\u0027\n\treturn ret",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.value.text": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "closeStatus": "{parent.custom.tagValues.CloseStatus}",
+                  "openStatus": "{parent.custom.tagValues.OpenStatus}"
+                },
+                "waitOnAll": false
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027openStatus\u0027]:\n\t\tret \u003d \u0027Open\u0027\n\telse:\n\t\tret \u003d \u0027Closed\u0027\n\treturn ret",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "location": "top"
+          },
+          "style": {
+            "classes": "label"
+          },
+          "value": {}
+        },
+        "type": "ia.symbol.valve"
+      }
+    ],
+    "custom": {
+      "currentTime": {
+        "$": [
+          "ts",
+          192,
+          1630955408716
+        ],
+        "$ts": 1630955408716
+      },
+      "tagPaths": {}
+    },
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\ttagPath \u003d self.view.params.rootTagPath\n\tview \u003d \u0027Templates/Faceplate/Common/Small Faceplate Skeleton\u0027\n\tposition \u003d {\u0027width\u0027:350,\u0027height\u0027:150}\n\tcommonNamePath \u003d tagPath + \u0027/General/Common Name\u0027\n\tcommonName \u003d system.tag.read(commonNamePath).value\n\ttitleStr \u003d str(commonName)\n\tparams \u003d {\n\t\t\u0027rootTagPath\u0027:tagPath\n\t}\n\tsystem.perspective.openPopup(id \u003d tagPath,view \u003d view,params \u003d params,title \u003d titleStr,overlayDismiss\u003dTrue,position\u003dposition)"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.tagPaths.CloseStatus": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value+\u0027/Control/Device Status/CloseStatus\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.Name": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value+\u0027/General/Common Name\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.OpenStatus": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value+\u0027/Control/Device Status/OpenStatus\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.RunStatus": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value+\u0027/Fault Status\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagValues": {
+        "binding": {
+          "config": {
+            "path": "this.custom.currentTime"
+          },
+          "transforms": [
+            {
+              "code": "\t\n\treturn templates.getTagValues(value, self.custom.tagPaths)",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.valveAlarms": {
+        "binding": {
+          "config": {
+            "expression": "now(1000)"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\t\n\treturn templates.getActiveChildrenAlarms(self.view.params.rootTagPath)",
+              "type": "script"
+            }
+          ],
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "classes": "Templates/Component"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "updateCurrentTime",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tself.custom.currentTime \u003d payload[\u0027currentTime\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "highlightComponent",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tif str(self.view.params.rootTagPath) \u003d\u003d str(payload[\u0027tagPath\u0027]):\n\t\tself.props.style.classes \u003d \u0027Templates/Component Templates/HighlightComponent\u0027",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.coord"
+  }
+}

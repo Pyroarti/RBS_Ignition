@@ -1,0 +1,87 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Valve 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 350,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "250px"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "expression": "now({session.custom.alarmPollRate})"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn templates.getFacePlateAlarmList(self.view.params.rootTagPath)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "path": "Templates/Faceplate/Common/Alarm Item",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "custom": {
+      "tagPaths": {}
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.tagPaths.AlarmReset": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Alarming/CmdReset\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "justify": "center",
+      "style": {
+        "classes": "Templates/Padding"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

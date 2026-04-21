@@ -1,0 +1,348 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Tank 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 350,
+      "width": 350
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater_TabStrip"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.rootTagPath"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttry:\n\t\tret \u003d templates.getFaceplateTabs(value)\n#\t\tparams \u003d {\n#\t\t\t\u0027rootTagPath\u0027: ret[0].tagPath,\n#\t\t\t\u0027type\u0027: ret[0].type\n#\t\t}\n#\t\tsystem.perspective.sendMessage(\u0027faceplateClearSelection\u0027,params,\u0027page\u0027)\n#\t\tsystem.perspective.sendMessage(\u0027tabUpdate\u0027,params,\u0027page\u0027)\n#\t\tret[0].selected \u003d True\n\texcept:\n\t\tret \u003d []\n\treturn ret",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "path": "Templates/Faceplate/Common/Faceplate Icon",
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t\n\t#x \u003d event.pageX - 20\n\t#y \u003d event.pageY - 395\n\tx \u003d round(event.pageX,0) - 10\n\ty \u003d round(event.pageY,0) - 370\n\t\n\ttagPath \u003d self.view.params.rootTagPath\n\tview \u003d \u0027Templates/Faceplate/Common/Small Faceplate Skeleton\u0027\n\tposition \u003d {\u0027width\u0027:350,\u0027height\u0027:150, \u0027top\u0027:y, \u0027left\u0027:x}\n\tcommonNamePath \u003d tagPath + \u0027/General/Common Name\u0027\n\tcommonName \u003d system.tag.read(commonNamePath).value\n\ttitleStr \u003d str(commonName)\n\tparams \u003d {\n\t\t\u0027rootTagPath\u0027:tagPath\n\t}\n\tmodal \u003d True\n\toverlayDismiss \u003d False\n\tsystem.perspective.closePopup(id \u003d tagPath)\n\tsystem.perspective.openPopup(id \u003d tagPath,view \u003d view,params \u003d params,title \u003d titleStr,overlayDismiss\u003dTrue, position\u003dposition, modal \u003d False)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_Minimize",
+              "tooltip": {
+                "enabled": true,
+                "text": "Open mini faceplate"
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.component"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif \u0027Tank\u0027 in value:\n\t\treturn False\n\telse:\n\t\treturn True",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "#808080",
+              "path": "material/close_fullscreen",
+              "style": {
+                "classes": "Templates/FaceplateIcon Templates/FaceplateIconUnselected"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.view.getChild(\"root\").custom.pinned:\n\t\tself.view.getChild(\"root\").custom.pinned \u003d False\n\telse:\n\t\tself.view.getChild(\"root\").custom.pinned \u003d True"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_Lock",
+              "tooltip": {
+                "enabled": true,
+                "text": "Pin faceplate when switching between pages"
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.pinned"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value:\n\t\tret \u003d \u0027material/lock\u0027\n\telse:\n\t\tret \u003d \u0027material/lock_open\u0027\n\treturn ret",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "#808080",
+              "style": {
+                "classes": "Templates/FaceplateIcon Templates/FaceplateIconUnselected"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_TabStrip"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "Templates/BannerColor"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "EmbeddedView_Alarm"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.alarms"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif len(value)\u003e0:\n\t\tret \u003d True\n\telse:\n\t\tret \u003d False\n\treturn ret",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "Templates/Faceplate/Common/Alarm Banner"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "events": {
+                  "system": {
+                    "onStartup": {
+                      "config": {
+                        "script": "\tparams \u003d {\n\t\t\u0027rootTagPath\u0027: self.view.params.rootTagPath,\n\t\t\u0027type\u0027: \u0027Control\u0027,\n\t\t\"newSelection\": 0\n\t\t}\n\tsystem.perspective.sendMessage(\u0027faceplateClearSelection\u0027,params,\u0027page\u0027)\n\tsystem.perspective.sendMessage(\u0027tabUpdate\u0027,params,\u0027page\u0027)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "EmbeddedView_CurrentTab"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "custom.component": {
+                    "binding": {
+                      "config": {
+                        "expression": "{/root.custom.component}"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.params.rootTagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.rootTagPath"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "Templates/Faceplate/Tank Faceplate/Control",
+                  "style": {
+                    "margin": "3px"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "tabUpdate",
+                      "pageScope": true,
+                      "script": "\t#sent from onclick event on tab icon root container\n\n\tif self.view.params.rootTagPath \u003d\u003d str(payload[\u0027rootTagPath\u0027]):\n\t\t# update tab view\n\t\tif payload[\u0027type\u0027]!\u003d\u0027Alarming\u0027:\n\t\t\tviewPath \u003d \u0027Templates/Faceplate/%s Faceplate/%s\u0027 %(self.view.getChild(\"root\").custom.component,payload[\u0027type\u0027])\n\t\t\ttabTagpath \u003d \"%s\" % (payload[\u0027rootTagPath\u0027])\n\t\telse:\n\t\t\tviewPath \u003d \u0027Templates/Faceplate/Common/Alarm Tab\u0027\n\t\t\ttabTagpath \u003d \"%s\" % (payload[\u0027rootTagPath\u0027])\n\t\tself.props.params.rootTagPath \u003d tabTagpath\n\t\tself.props.path \u003d viewPath\n\t\t\n\t\t# update tab selection\n\t\ttabStrip \u003d self.parent.parent.parent.getChild(\"FlexContainer_TabStrip\").getChild(\"FlexRepeater_TabStrip\")\n\t\t\n\t\tfor instance in tabStrip.props.instances:\n\t\t\tinstance[\u0027tabSelection\u0027] \u003d payload[\"newSelection\"]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_Content"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "HighPerformance/BackgroundWhite"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "currentTab": "",
+      "pinned": false
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.alarms": {
+        "binding": {
+          "config": {
+            "expression": "now({session.custom.alarmPollRate})"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\trootTagPath \u003d self.view.params.rootTagPath\n\tif rootTagPath !\u003d\u0027\u0027:\n\t\tret \u003d templates.getActiveChildrenAlarms(rootTagPath)\n\telse:\n\t\tret \u003d []  \n\treturn ret",
+              "type": "script"
+            }
+          ],
+          "type": "expr"
+        }
+      },
+      "custom.component": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\tif value\u003d\u003d\u0027\u0027:\n\t\tret \u003d \u0027\u0027\n\telse:\n\t\tconfig \u003d system.tag.getConfiguration(value)\n\t\tsplit \u003d config[0][\u0027typeId\u0027].split(\u0027/\u0027)\n\t\tret\u003d split[-1]\n\treturn ret",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "switchPage",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tif not self.custom.pinned:\n\t\tsystem.perspective.closePopup(id \u003d self.view.params.rootTagPath)",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

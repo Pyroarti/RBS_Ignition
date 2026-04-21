@@ -1,0 +1,366 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Valve 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Valve Cycles"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Today"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.CyclesToday}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_MaintVal1"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Yesterday"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.CyclesYesterday}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_MaintVal2"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Last Week"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.CyclesLastWeek}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_MaintVal3"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "All Time"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.CyclesTotal}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_MaintVal5"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_Width"
+            },
+            "position": {
+              "basis": "250px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_Values"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "tagPaths": {}
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.tagPaths.CyclesLastWeek": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/Cycles Last Week\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesToday": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/Cycles Today\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesTotal": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/Total Cycles\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesYesterday": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/Cycles Yesterday\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Templates/Padding"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

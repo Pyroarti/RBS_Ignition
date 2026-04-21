@@ -1,0 +1,115 @@
+{
+  "custom": {},
+  "params": {
+    "label": "OPC Device Name",
+    "specialIdentifier": "opcDevicePath",
+    "tagpath": "[Enterprise]Enterprise/TRFP Water System/TRFP Site/Chemicals/Orthophosphate/3196 P 0401/Control/DeviceControl/CmdStop.opcItemPath"
+  },
+  "propConfig": {
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.specialIdentifier": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagpath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 33,
+      "width": 487
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "300px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14px",
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "500px"
+        },
+        "propConfig": {
+          "custom.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagpath": "{view.params.tagpath}"
+                },
+                "tagPath": "{tagpath}"
+              },
+              "transforms": [
+                {
+                  "code": "\tspecialId \u003d self.view.params.specialIdentifier \n\tif specialId \u003d\u003d \u0027opcDeviceName\u0027:\n\t\treturn value.split(\u0027[\u0027)[1].split(\u0027]\u0027)[0]\n\telif specialId \u003d\u003d \u0027opcDevicePath\u0027:\n\t\treturn value.split(\u0027[\u0027)[1].split(\u0027]\u0027)[1]\n\telse:\n\t\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if(isNull({view.params.tagpath}), \"\", {this.custom.text})"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14px",
+            "overflow": "hidden",
+            "overflowWrap": "normal",
+            "textAlign": "end",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "space-between",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

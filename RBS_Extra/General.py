@@ -63,6 +63,29 @@ async def add_status_group(parent, idx: int, folder_name: str, prefix: str, star
 
     return nodes
 
+async def add_op_group(parent, idx: int, folder_name: str, prefix: str, start: int, end: int):
+    """
+    Skapar t.ex.:
+      Objects/SCADA_Test/Pumps/P101/OP
+
+    Status är skrivbar Int32.
+    """
+    folder = await parent.add_folder(idx, folder_name)
+    nodes = {}
+
+    for number in range(start, end + 1):
+        tag = f"{prefix}{number}"
+        obj = await folder.add_object(idx, tag)
+        status = await obj.add_variable(
+            idx,
+            "OP",
+            ua.Variant(0, ua.VariantType.Int32),
+        )
+        await status.set_writable()
+        nodes[tag] = status
+
+    return nodes
+
 
 async def add_analog_group(
     parent,
@@ -223,6 +246,7 @@ async def main():
     pump_nodes = await add_status_group(scada_root, idx, "Pumps", "P", 101, 110)
     motor_nodes = await add_status_group(scada_root, idx, "Motors", "M", 101, 110)
     valve_nodes = await add_status_group(scada_root, idx, "Valves", "V", 101, 110)
+    valve_op_nodes = await add_op_group(scada_root, idx, "Valves_OP", "V_OP", 101, 110)
 
     analog_points = {}
     analog_points.update(
@@ -307,6 +331,7 @@ async def main():
         "motors": motor_nodes,
         "valves": valve_nodes,
         "analogs": analog_points,
+        "valves_op": valve_op_nodes
     }
 
     _logger.info("Server startad: %s", ENDPOINT)

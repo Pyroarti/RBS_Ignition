@@ -1,0 +1,255 @@
+{
+  "custom": {},
+  "params": {
+    "viewPath": ""
+  },
+  "propConfig": {
+    "params.viewPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Valve 1"
+        },
+        "position": {
+          "height": 0.0991,
+          "rotate": {
+            "anchor": "-82% 50%"
+          },
+          "width": 0.0354,
+          "x": 0.0916,
+          "y": 0.4158
+        },
+        "props": {
+          "params": {
+            "rootTagPath": "[default]Valve 1"
+          },
+          "path": "Templates/Symbol/Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Tanks 1"
+        },
+        "position": {
+          "height": 0.1741,
+          "width": 0.0526,
+          "x": 0.5801,
+          "y": 0.2718
+        },
+        "props": {
+          "params": {
+            "rootTagPath": "[default]Tank 1"
+          },
+          "path": "Templates/Symbol/Tank"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Playback Controller"
+        },
+        "position": {
+          "height": 0.1444,
+          "width": 0.2469,
+          "x": 0.3766,
+          "y": 0.5329
+        },
+        "props": {
+          "params": {
+            "currentTime": "2021-09-21 15:18:21",
+            "filter": "",
+            "historicalMode": false,
+            "play": true,
+            "playbackSpeed": 1,
+            "rangeEnd": "2026-04-21 22:14:20",
+            "rangeOption": 3,
+            "rangeStart": "2026-04-20 22:14:20",
+            "showModeSwitch": true,
+            "tags": [
+              "[BuildAThon_Kevin]Tanks/Tank 1/Level",
+              "[BuildAThon_Kevin]Tanks/Tank 2/Level",
+              "[BuildAThon_Kevin]Tanks/Main/Level"
+            ],
+            "tickError": "",
+            "timestamp": "value",
+            "values": {
+              "Tanks_Main_Level": null,
+              "Tanks_Tank_1_Level": null,
+              "Tanks_Tank_2_Level": null
+            }
+          },
+          "path": "Templates/Playback Controller"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pump 1"
+        },
+        "position": {
+          "height": 0.0991,
+          "width": 0.0432,
+          "x": 0.387,
+          "y": 0.3088
+        },
+        "props": {
+          "params": {
+            "rootTagPath": "[default]Pump 3"
+          },
+          "path": "Templates/Symbol/Pump"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "RadioGroup"
+        },
+        "position": {
+          "height": 0.1731,
+          "width": 0.0807,
+          "x": 0.7091,
+          "y": 0.3583
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.props.symbols.autoAppearance"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tself.session.props.pipes.autoAppearance \u003d currentValue.value"
+            }
+          }
+        },
+        "props": {
+          "radios": [
+            {
+              "selected": true,
+              "text": "Simple",
+              "value": "simple"
+            },
+            {
+              "selected": false,
+              "text": "P\u0026ID",
+              "value": "p\u0026id"
+            },
+            {
+              "selected": false,
+              "text": "Mimic",
+              "value": "mimic"
+            }
+          ]
+        },
+        "type": "ia.input.radio-group"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "height": 0.2963,
+          "rotate": {
+            "anchor": "63% 0%"
+          },
+          "width": 0.1667,
+          "x": 0.2239,
+          "y": 0.0842
+        },
+        "props": {
+          "path": "Templates/Symbol/Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Valve 2"
+        },
+        "position": {
+          "height": 0.0991,
+          "rotate": {
+            "anchor": "-82% 50%"
+          },
+          "width": 0.0354,
+          "x": 0.1479,
+          "y": 0.4176
+        },
+        "props": {
+          "params": {
+            "rootTagPath": "[default]Valve 1"
+          },
+          "path": "Templates/Symbol/Valve"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "pipes": [
+        {
+          "appearance": "auto",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe",
+          "origin": {
+            "connections": [
+              {
+                "connections": [],
+                "x": 0.4917,
+                "y": 0.3583
+              }
+            ],
+            "x": 0.4297,
+            "y": 0.3583
+          },
+          "start": "none",
+          "stroke": "",
+          "width": 10
+        },
+        {
+          "appearance": "auto",
+          "end": "none",
+          "fill": "",
+          "flanges": true,
+          "lineVariant": "solid",
+          "name": "pipe_0",
+          "origin": {
+            "connections": [
+              {
+                "connections": [],
+                "x": 0.5801,
+                "y": 0.3588
+              }
+            ],
+            "x": 0.5271,
+            "y": 0.3588
+          },
+          "start": "none",
+          "stroke": "",
+          "width": 10
+        }
+      ]
+    },
+    "type": "ia.container.coord"
+  }
+}

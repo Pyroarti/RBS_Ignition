@@ -1,0 +1,652 @@
+{
+  "custom": {
+    "propertyRowHeight": 30,
+    "rootName": "W_3196_P_0402",
+    "tagProperties": [
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "all"
+        ],
+        "label": "Tag Name",
+        "property": "name",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "all"
+        ],
+        "label": "Tag Type",
+        "property": "tagType",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "all"
+        ],
+        "label": "Tag Quality",
+        "property": "quality",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "all"
+        ],
+        "label": "Value Source",
+        "property": "valueSource",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [],
+        "label": "Description",
+        "property": "documentation",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [],
+        "label": "Tag Group",
+        "property": "tagGroup",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [],
+        "label": "Enabled",
+        "property": "enabled",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "AtomicTag"
+        ],
+        "label": "Value",
+        "property": "value",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "AtomicTag"
+        ],
+        "label": "Eng Units",
+        "property": "engUnit",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "AtomicTag"
+        ],
+        "label": "Format String",
+        "property": "formatString",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [],
+        "associatedTagTypes": [
+          "AtomicTag"
+        ],
+        "label": "History Enabled",
+        "property": "historyEnabled",
+        "specialIdentifier": null
+      },
+      {
+        "associatedSources": [
+          "opc"
+        ],
+        "associatedTagTypes": [],
+        "label": "OPC Device",
+        "property": "opcItemPath",
+        "specialIdentifier": "opcDeviceName"
+      },
+      {
+        "associatedSources": [
+          "opc"
+        ],
+        "associatedTagTypes": [],
+        "label": "OPC Device Path",
+        "property": "opcItemPath",
+        "specialIdentifier": "opcDevicePath"
+      }
+    ],
+    "tagSelection": "[Enterprise]Enterprise/TRFP Water System/TRFP Site/Chemicals/Orthophosphate/W_3196_P_0402/W_3196_P_0402/General/AssetName",
+    "tagType": "AtomicTag",
+    "valueSource": "memory"
+  },
+  "params": {
+    "rootTagPath": "[Enterprise]Enterprise/TRFP Water System/TRFP Site/Chemicals/Orthophosphate/W_3196_P_0402/W_3196_P_0402"
+  },
+  "propConfig": {
+    "custom.propertyRowHeight": {
+      "persistent": true
+    },
+    "custom.rootName": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "rootTagPath": "{view.params.rootTagPath}"
+          },
+          "tagPath": "{rootTagPath}.name"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagProperties": {
+      "persistent": true
+    },
+    "custom.tagSelection": {
+      "binding": {
+        "config": {
+          "path": "/root/Tree.props.selectionData"
+        },
+        "transforms": [
+          {
+            "code": "\tif len(value) \u003e 0:\n\t\treturn value[0][\u0027value\u0027][\u0027path\u0027]\n\telse:\n\t\treturn None",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.tagType": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagSelection": "{view.custom.tagSelection}"
+          },
+          "tagPath": "{tagSelection}.tagType"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.valueSource": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagSelection": "{view.custom.tagSelection}"
+          },
+          "tagPath": "{tagSelection}.ValueSource"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 350
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "id": "details",
+                    "type": "close"
+                  },
+                  "scope": "C",
+                  "type": "dock"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "color": "#808080",
+              "path": "material/clear",
+              "style": {
+                "classes": "HighPerformance/FaceplateStyles/IconUnselected"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "320px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.rootName"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"%s Tag Properties\" % value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Widget/Component_Title_Popup"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "HighPerformance/BannerColor Widget/Component_Style"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Tree"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "path": "view.params.rootTagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\tpath \u003d self.view.params.rootTagPath\n\texpanded \u003d True\n\tfilters \u003d None\n\t\n\ttreeView \u003d [{\n\t  \"expanded\": True,\n\t  \"data\": {\n\t    \"path\": path\n\t  },\n\t  \"label\": system.tag.read(path + \u0027.name\u0027).value,\n\t  \"items\": Framework.Tags.browseTags(path, filters, False)\n\t}]\n\t\n\treturn treeView",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "path": "material/stop"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/arrow_right"
+              },
+              "expanded": {
+                "path": "material/arrow_drop_down"
+              }
+            }
+          },
+          "selection": [
+            "0/2/0"
+          ],
+          "selectionData": [
+            {
+              "itemPath": "0/2/0",
+              "value": {
+                "path": "[Enterprise]Enterprise/TRFP Water System/TRFP Site/Chemicals/Orthophosphate/W_3196_P_0402/W_3196_P_0402/General/AssetName"
+              }
+            }
+          ]
+        },
+        "type": "ia.display.tree"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "style": {
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              },
+              "text": "General Properties"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater_2"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.basis": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "height": "{view.custom.propertyRowHeight}",
+                      "instances": "{this.props.instances}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"%spx\" % (len(value[\"instances\"]) * value[\"height\"])",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "tagProperties": "{view.custom.tagProperties}",
+                      "tagSelection": "{view.custom.tagSelection}",
+                      "tagSource": "{view.custom.valueSource}",
+                      "tagType": "{view.custom.tagType}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tret \u003d []\n\ttagSelection \u003d value[\"tagSelection\"]\n\ttagProperties \u003d value[\"tagProperties\"]\n\ttagTypes \u003d [\u0027all\u0027]\n\tsourceTypes \u003d []\n\treturn self.parent.parent.getTagAttributes(tagSelection, tagProperties, tagTypes, sourceTypes)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/Components/Faceplate/Common/Component Details Menu/Components/Tag Property View",
+              "style": {
+                "marginBottom": "25px"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "custom": {
+              "map": {
+                "AtomicTag": "Atomic Tag",
+                "Folder": "Folder",
+                "UdtInstance": "UDT Instance"
+              }
+            },
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.tagType"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttry:\n\t\treturn \"%s Properties\" % self.custom.map[value]\n\texcept:\n\t\treturn \"Tag Type Properties\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater_3"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.basis": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "height": "{view.custom.propertyRowHeight}",
+                      "instances": "{this.props.instances}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"%spx\" % (len(value[\"instances\"]) * value[\"height\"])",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "tagProperties": "{view.custom.tagProperties}",
+                      "tagSelection": "{view.custom.tagSelection}",
+                      "tagSource": "{view.custom.valueSource}",
+                      "tagType": "{view.custom.tagType}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tret \u003d []\n\ttagSelection \u003d value[\"tagSelection\"]\n\ttagProperties \u003d value[\"tagProperties\"]\n\ttagTypes \u003d [value[\"tagType\"]]\n\tsourceTypes \u003d []\n\treturn self.parent.parent.getTagAttributes(tagSelection, tagProperties, tagTypes, sourceTypes)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/Components/Faceplate/Common/Component Details Menu/Components/Tag Property View",
+              "style": {
+                "marginBottom": "25px"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "custom": {
+              "map": {
+                "derived": "Derived Tag",
+                "expression": "Expression Tag",
+                "memory": "Memory Tag",
+                "opc": "OPC Tag",
+                "query": "Query Tag",
+                "reference": "Reference Tag"
+              }
+            },
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.valueSource"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttry:\n\t\treturn \"%s Properties\" % self.custom.map[value]\n\texcept:\n\t\treturn \"Tag Source Properties\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater_4"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.basis": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "height": "{view.custom.propertyRowHeight}",
+                      "instances": "{this.props.instances}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"%spx\" % (len(value[\"instances\"]) * value[\"height\"])",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "tagProperties": "{view.custom.tagProperties}",
+                      "tagSelection": "{view.custom.tagSelection}",
+                      "tagSource": "{view.custom.valueSource}",
+                      "tagType": "{view.custom.tagType}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tret \u003d []\n\ttagSelection \u003d value[\"tagSelection\"]\n\ttagProperties \u003d value[\"tagProperties\"]\n\ttagTypes \u003d []\n\tsourceTypes \u003d [value[\"tagSource\"]]\n\treturn self.parent.parent.getTagAttributes(tagSelection, tagProperties, tagTypes, sourceTypes)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/Components/Faceplate/Common/Component Details Menu/Components/Tag Property View",
+              "style": {
+                "marginBottom": "25px"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "500px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "Widget/Component_Style",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Widget/Component_Style HighPerformance/BackgroundWhite"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "getTagAttributes",
+          "params": [
+            "tagSelection",
+            "tagProperties",
+            "tagTypes",
+            "valueSources"
+          ],
+          "script": "\t# implement your method here\n\t\n\t# returns a list of tag attributes to populate flex repeater, tagTypes is a list of tag type attributes\n\t# to filter for, valueSources is a list of valueSource attributes to filter for. The \u0027all\u0027 tagType attribute \n\t# returns properties that are shared between all tags, not all properties that exist.\n\t\n\tdef compareTypes(typesAssociatedWithItem, typeRequested):\n\t\tfor aType in typeRequested:\n\t\t\tif aType in typesAssociatedWithItem:\n\t\t\t\treturn True\n\t\treturn False\n\t\n\tret \u003d []\n\t\n\tif tagSelection is None:\n\t\treturn ret\n\t\n\tfor item in tagProperties:\n\t\tattributeRequestedForType \u003d compareTypes(item[\"associatedTagTypes\"], tagTypes)\n\t\tattributeRequestedForSource \u003d compareTypes(item[\"associatedSources\"], valueSources)\n\t\tif attributeRequestedForType or attributeRequestedForSource:\n\t\n\t\t\tnewItem \u003d {\n\t\t\t\t\"label\": item[\"label\"],\n\t\t\t\t\"tagpath\": \"%s.%s\" % (tagSelection, item[\"property\"]),\n\t\t\t\t\"specialIdentifier\": item[\"specialIdentifier\"]\n\t\t\t}\n\t\t\tret.append(newItem)\n\treturn ret"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

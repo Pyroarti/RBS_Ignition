@@ -1,0 +1,10 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:local:scada:testserver;i\u003d73",
+    "dataType": "Int4",
+    "name": "OP",
+    "tagType": "AtomicTag",
+    "opcServer": "Generall"
+  }
+]

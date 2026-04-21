@@ -1,0 +1,198 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": ""
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 507,
+      "width": 702
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "text": "Alarm Status"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "newTab": true,
+                        "page": "/alarming"
+                      },
+                      "scope": "C",
+                      "type": "nav"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon_openAlarming"
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#808080",
+                  "path": "material/north_east",
+                  "style": {
+                    "classes": "HighPerformance/FaceplateStyles/IconUnselected"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "id": "alarmDock",
+                        "type": "close"
+                      },
+                      "scope": "C",
+                      "type": "dock"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon_close"
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#808080",
+                  "path": "material/clear",
+                  "style": {
+                    "classes": "HighPerformance/FaceplateStyles/IconUnselected"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_Icons"
+            },
+            "position": {
+              "basis": "100px",
+              "shrink": 0
+            },
+            "props": {
+              "justify": "flex-end"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_Header"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "classes": "HighPerformance/BannerColor Widget/Component_Style"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "AlarmStatusTable"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.filters.active.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.rootTagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\tsplit \u003d value.split(\u0027]\u0027)\n\treturn split[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "columns": {
+            "active": {
+              "displayPath": {
+                "enabled": false
+              },
+              "label": {
+                "enabled": true
+              },
+              "name": {
+                "enabled": false
+              },
+              "priority": {
+                "sort": "ascending",
+                "width": 80
+              },
+              "source": {
+                "enabled": false
+              }
+            }
+          },
+          "enableDetails": false,
+          "enableHeader": false,
+          "filters": {
+            "active": {
+              "states": {
+                "clearUnacked": false
+              }
+            }
+          },
+          "pager": {
+            "enabled": false
+          },
+          "responsive": {
+            "enabled": true
+          },
+          "toolbar": {
+            "enabled": false
+          }
+        },
+        "type": "ia.display.alarmstatustable"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

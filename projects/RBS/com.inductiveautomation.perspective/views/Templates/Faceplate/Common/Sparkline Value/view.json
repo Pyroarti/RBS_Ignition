@@ -1,0 +1,484 @@
+{
+  "custom": {
+    "high": 1.0394990153638675,
+    "label": "PositionFeedback",
+    "low": 0.2755004545211517
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tdef waitUpdate():\n\t\tfrom time import sleep\n\t\tsleep(2)\n\t\tself.getChild(\"root\").getChild(\"FlexContainer_Buttons\").getChild(\"MultiStateButton\").props.controlValue \u003d self.params.timeRange\n\t\n\tsystem.util.invokeAsynchronous(waitUpdate)"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "desiredHigh": "",
+    "desiredLow": "",
+    "endDate": {
+      "$": [
+        "ts",
+        192,
+        1625085629666
+      ],
+      "$ts": 1625073968000
+    },
+    "setPoint": "",
+    "startDate": {
+      "$": [
+        "ts",
+        192,
+        1631990247818
+      ],
+      "$ts": 1624987568000
+    },
+    "tagPath": [
+      {
+        "path": "[Enterprise]Enterprise/TRFP Water System/TRFP Site/Chemicals/Orthophosphate/W_3196_V_0101/W_3196_V_0101/Control/DeviceStatus/PositionFeedback"
+      }
+    ],
+    "timeRange": 1,
+    "unit": "",
+    "value": ""
+  },
+  "propConfig": {
+    "custom.high": {
+      "persistent": true
+    },
+    "custom.label": {
+      "binding": {
+        "config": {
+          "path": "view.params.tagPath[0].path"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\tret \u003d value.split(\u0027/\u0027)\n\treturn ret[-1]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.low": {
+      "persistent": true
+    },
+    "params.desiredHigh": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desiredLow": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.endDate": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.setPoint": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.startDate": {
+      "binding": {
+        "config": {
+          "struct": {
+            "endDate": "{view.params.endDate}",
+            "selectedTime": "{/root/FlexContainer_Buttons/MultiStateButton.props.controlValue}"
+          },
+          "waitOnAll": false
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\tendDate \u003d self.params.endDate\n\tif value.selectedTime \u003d\u003d 0:\n\t\tret \u003d system.date.addHours(endDate,-1)\n\telif value.selectedTime \u003d\u003d 1:\n\t\tret \u003d system.date.addHours(endDate,-24)\n\telif value.selectedTime \u003d\u003d 2:\n\t\tret \u003d system.date.addDays(endDate,-7)\n\telse:\n\t\tret \u003d system.date.addHours(endDate,-1)\n\treturn ret",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.timeRange": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 350
+    },
+    "loading": {
+      "mode": "blocking"
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "MultiStateButton"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.timeRange"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.controlValue"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "defaultSelectedStyle": {
+                "color": "#808080"
+              },
+              "defaultUnselectedStyle": {
+                "color": "#AAAAAA"
+              },
+              "states": [
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#D5D5D5",
+                    "classes": ""
+                  },
+                  "text": "1 Hr",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 0
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#D5D5D5",
+                    "classes": ""
+                  },
+                  "text": "1 Dy",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 1
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#D5D5D5",
+                    "classes": ""
+                  },
+                  "text": "1 Wk",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 2
+                }
+              ]
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_Buttons"
+        },
+        "position": {
+          "basis": "45px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.label"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "Templates/Label"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.EngUnit": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "1": "{view.params.tagPath[0].path}"
+                        },
+                        "tagPath": "{1}.EngUnit"
+                      },
+                      "overlayOptOut": true,
+                      "type": "tag"
+                    }
+                  },
+                  "custom.FormatString": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "path": "{view.params.tagPath[0].path}"
+                        },
+                        "tagPath": "{path}.FormatString"
+                      },
+                      "overlayOptOut": true,
+                      "type": "tag"
+                    }
+                  },
+                  "custom.Value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "1": "{view.params.tagPath[0].path}"
+                        },
+                        "tagPath": "{1}"
+                      },
+                      "overlayOptOut": true,
+                      "type": "tag"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "concat(numberFormat({this.custom.Value}, {this.custom.FormatString}), \u0027 \u0027,{this.custom.EngUnit})"
+                      },
+                      "overlayOptOut": true,
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "Templates/Value"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_LabelValue"
+            },
+            "position": {
+              "basis": "20px",
+              "shrink": 0
+            },
+            "props": {
+              "justify": "space-between",
+              "style": {
+                "overflow": "visible",
+                "paddingLeft": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "TimeSeriesChart"
+            },
+            "position": {
+              "basis": "400px"
+            },
+            "propConfig": {
+              "props.series[0].data": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.startDate"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\tendDate \u003d self.view.params.endDate\n\tstartDate \u003d self.view.params.startDate\n\ttagPath \u003d self.view.params.tagPath[0].path\n\tsplitPath \u003d tagPath.split(\u0027/\u0027)\n\tcolumnNames \u003d [str(splitPath[-1])]\n\t\n\tvalue \u003d system.tag.queryTagHistory([tagPath],startDate \u003d startDate, endDate \u003d endDate,returnSize\u003d100,aggregationMode \u003d \u0027Maximum\u0027,columnNames \u003d columnNames)\n\thigh \u003d self.view.params.desiredHigh\n\tlow \u003d self.view.params.desiredLow\n\theaders \u003d []\n\tcolumnNames \u003d value.getColumnNames()\n\tfor header in columnNames:\n\t\theaders.append(str(header))\n\tif str(high)!\u003d\u0027\u0027:\n\t\theaders.append(\u0027High\u0027)\n\tif str(low)!\u003d\u0027\u0027:\n\t\theaders.append(\u0027Low\u0027)\n\tdata \u003d []\n\tfor row in system.dataset.toPyDataSet(value):\n\t\tdataRow \u003d []\n\t\t\n\t\tfor column in columnNames:\n\t\t\tdataRow.append(row[column])\n\t\tif str(high)!\u003d\u0027\u0027:\n\t\t\tdataRow.append(high)\n\t\tif str(low)!\u003d\u0027\u0027:\n\t\t\tdataRow.append(low)\t\n\t\n\t\tdata.append(dataRow)\n\t\t\n\treturn system.dataset.toDataSet(headers,data)\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "defaultStyles": {
+                "colors": [
+                  "#808080",
+                  "#AAAAAA",
+                  "#AAAAAA",
+                  "#AAAAAA"
+                ]
+              },
+              "enablePanZoom": false,
+              "plots": [
+                {
+                  "axes": [
+                    {
+                      "alignment": "left",
+                      "label": {
+                        "font": {
+                          "color": "",
+                          "size": 10
+                        },
+                        "offset": 0,
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "",
+                        "visible": true
+                      },
+                      "max": "",
+                      "min": "",
+                      "name": "yaxis",
+                      "style": {
+                        "classes": ""
+                      },
+                      "tick": {
+                        "color": "",
+                        "label": {
+                          "font": {
+                            "color": "",
+                            "size": 10
+                          },
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "width": 0
+                    }
+                  ],
+                  "markers": [],
+                  "trends": [
+                    {
+                      "axis": "yaxis",
+                      "baselines": [],
+                      "breakLine": true,
+                      "columns": [],
+                      "interpolation": "curveLinear",
+                      "radius": 2,
+                      "series": "data",
+                      "stack": true,
+                      "type": "line",
+                      "visible": true
+                    }
+                  ]
+                }
+              ],
+              "series": [
+                {
+                  "name": "data"
+                }
+              ],
+              "timeAxis": {
+                "height": 0,
+                "visible": false
+              },
+              "timeRange": {
+                "visible": false
+              },
+              "xTrace": {
+                "infoBox": {
+                  "width": 200
+                },
+                "visible": false
+              }
+            },
+            "type": "ia.chart.timeseries"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainerContent"
+        },
+        "position": {
+          "basis": "320px"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "marginLeft": "5px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "center",
+      "justify": "center",
+      "style": {
+        "classes": "Widget/Component_Style",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

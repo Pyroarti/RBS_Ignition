@@ -1,0 +1,342 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Pump 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 118,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "MultiStateButton_HandAuto"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tautoTagPath \u003d self.view.getChild(\"root\").custom.tagPaths.Auto\n\tif currentValue.value:\n\t\tsystem.tag.write(autoTagPath,0)\n\telse:\n\t\tsystem.tag.write(autoTagPath,1)\n"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "Auto": "{/root.custom.tagPaths.Auto}"
+                    },
+                    "tagPath": "{Auto}"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": 1,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0
+                        },
+                        {
+                          "input": false,
+                          "output": 1
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "controlValue": 0,
+              "defaultSelectedStyle": {
+                "backgroundColor": "#AAAAAA"
+              },
+              "states": [
+                {
+                  "selectedStyle": {
+                    "classes": ""
+                  },
+                  "text": "Auto",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 1
+                },
+                {
+                  "selectedStyle": {
+                    "classes": ""
+                  },
+                  "text": "Manual",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 0
+                }
+              ]
+            },
+            "type": "ia.input.multi-state-button"
+          },
+          {
+            "meta": {
+              "name": "spacer_0"
+            },
+            "position": {
+              "basis": "10px",
+              "shrink": 0
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "MultiStateButton_INS_OOS"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\toosPath \u003d self.view.getChild(\"root\").custom.tagPaths.OOS\n\t\n\tif currentValue.value \u003d\u003d 0:\n\t\tsystem.tag.writeBlocking([oosPath],[False])\n\telif currentValue.value \u003d\u003d 1:\n\t\tsystem.tag.writeBlocking([oosPath],[True])"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "OOS": "{/root.custom.tagPaths.OOS}"
+                    },
+                    "tagPath": "{OOS}"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": 0,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 1
+                        },
+                        {
+                          "input": false,
+                          "output": 0
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "controlValue": 0,
+              "defaultSelectedStyle": {
+                "backgroundColor": "#AAAAAA"
+              },
+              "states": [
+                {
+                  "selectedStyle": {
+                    "classes": ""
+                  },
+                  "text": "In Service",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 0
+                },
+                {
+                  "selectedStyle": {
+                    "classes": ""
+                  },
+                  "text": "Out of Service",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 1
+                }
+              ]
+            },
+            "type": "ia.input.multi-state-button"
+          },
+          {
+            "meta": {
+              "name": "spacer_1"
+            },
+            "position": {
+              "basis": "10px",
+              "shrink": 0
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "MultiStateButton_INS_Start_Stop"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tRunning \u003d self.view.getChild(\"root\").custom.tagPaths.Running\n\t\n\tif currentValue.value \u003d\u003d 0:\n\t\tsystem.tag.writeBlocking([Running],[True])\n\telif currentValue.value \u003d\u003d 1:\n\t\tsystem.tag.writeBlocking([Running],[False])"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "CmdStart": "{/root.custom.tagPaths.Running}"
+                    },
+                    "tagPath": "{CmdStart}"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": 0,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0
+                        },
+                        {
+                          "input": false,
+                          "output": 1
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "controlValue": 1,
+              "defaultSelectedStyle": {
+                "backgroundColor": "#AAAAAA"
+              },
+              "states": [
+                {
+                  "selectedStyle": {
+                    "classes": ""
+                  },
+                  "text": "Start",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 0
+                },
+                {
+                  "selectedStyle": {
+                    "classes": ""
+                  },
+                  "text": "Stop",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 1
+                }
+              ]
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_Controls"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "tagPaths": {}
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.tagPaths.Auto": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value +\u0027/Control/Device Status/Auto\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.OOS": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value +\u0027/Control/Device Status/OOS\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.Running": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value +\u0027/Control/Device Status/Running\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "justify": "center"
+    },
+    "type": "ia.container.flex"
+  }
+}

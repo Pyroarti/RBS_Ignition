@@ -1,0 +1,676 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Pump 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Widget/Component_Title_Popup"
+          },
+          "text": "Runtime Hours"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Today"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.RuntimeToday}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "custom": {
+                  "index": 0
+                },
+                "meta": {
+                  "name": "FlexContainer_MaintVal1"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.label": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"label\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.tagName": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"tagName\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Yesterday"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.RuntimeYesterday}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "custom": {
+                  "index": 0
+                },
+                "meta": {
+                  "name": "FlexContainer_MaintVal2"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.label": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"label\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.tagName": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"tagName\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "This Month"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.RuntimeThisMonth}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "custom": {
+                  "index": 0
+                },
+                "meta": {
+                  "name": "FlexContainer_MaintVal3"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.label": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"label\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.tagName": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"tagName\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Last Month"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.RuntimeLastMonth}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "custom": {
+                  "index": 0
+                },
+                "meta": {
+                  "name": "FlexContainer_MaintVal4"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.label": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"label\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.tagName": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"tagName\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "70px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "All Time"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "expression",
+                            "tagPath": "{/root.custom.tagPaths.Runtime}"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "custom": {
+                  "index": 0
+                },
+                "meta": {
+                  "name": "FlexContainer_MaintVal5"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.label": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"label\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.tagName": {
+                    "binding": {
+                      "config": {
+                        "path": "/root.custom.map"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn value[self.custom.index][\"tagName\"]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_Width"
+            },
+            "position": {
+              "basis": "250px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_Values"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "tagPaths": {}
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.tagPaths.Cycles": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/Cycles\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesLastMonth": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/CyclesLastMonth\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesThisMonth": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/CyclesThisMonth\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesToday": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/CyclesToday\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.CyclesYesterday": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/CyclesYesterday\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.Runtime": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/RuntimeHours\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.RuntimeLastMonth": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/RuntimeHoursLastMonth\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.RuntimeThisMonth": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/RuntimeHoursThisMonth\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.RuntimeToday": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/RuntimeHoursToday\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.RuntimeYesterday": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \"/Maintenance/RuntimeHoursYesterday\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Templates/Padding"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

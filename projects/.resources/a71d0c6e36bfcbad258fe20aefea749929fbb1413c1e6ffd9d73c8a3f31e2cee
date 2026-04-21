@@ -1,0 +1,104 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Valve 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 34,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.activeAlarms[0].name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Templates/Label"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Value"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.activeAlarms[0].state"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Templates/Value"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.activeAlarms": {
+        "binding": {
+          "config": {
+            "expression": "now(5000)"
+          },
+          "transforms": [
+            {
+              "code": "\t\n\treturn templates.getActiveChildrenAlarms(self.view.params.rootTagPath)",
+              "type": "script"
+            }
+          ],
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "justify": "space-between",
+      "style": {
+        "borderBottomLeftRadius": "5px",
+        "borderBottomRightRadius": "5px",
+        "borderColor": "#FF4747",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "5px",
+        "borderTopRightRadius": "5px",
+        "borderWidth": "1px",
+        "classes": "Templates/Padding",
+        "color": "#FF4747"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

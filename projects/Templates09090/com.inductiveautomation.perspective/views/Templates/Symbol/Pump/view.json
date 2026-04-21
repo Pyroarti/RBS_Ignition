@@ -1,0 +1,257 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Pump 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 137,
+      "width": 142
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Pump"
+        },
+        "position": {
+          "height": 1,
+          "width": 1
+        },
+        "propConfig": {
+          "custom.EngUnit": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{parent.custom.tagPaths.SpeedFB}"
+                },
+                "tagPath": "{1}.EngUnit"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          },
+          "custom.FormatString": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{parent.custom.tagPaths.SpeedFB}"
+                },
+                "tagPath": "{1}.FormatString"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          },
+          "custom.Value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{parent.custom.tagPaths.SpeedFB}"
+                },
+                "tagPath": "{1}"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          },
+          "props.label.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{parent.custom.tagPaths.Name}"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          },
+          "props.state": {
+            "binding": {
+              "config": {
+                "expression": "now(5000)"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\talarms \u003d self.parent.custom.pumpAlarms\n\trunSts \u003d self.parent.custom.tagValues.RunStatus\n\tif len(alarms) \u003e 0:\n\t\tret \u003d \u0027faulted\u0027\n\telse:\n\t\tif runSts \u003d\u003d 0:\n\t\t\tret \u003d \u0027stopped\u0027\n\t\telif runSts \u003d\u003d 1:\n\t\t\tret \u003d \u0027running\u0027\n\t\telse:\n\t\t\tret \u003d \u0027default\u0027\t\t\n\treturn ret\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.value.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.tagValues.SpeedFB"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn str(round(value,2))+\u0027 RPM\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "location": "top"
+          },
+          "style": {
+            "classes": "label"
+          },
+          "value": {
+            "style": {
+              "classes": "HighPerformance/SymbolStyles/Component_PV_Display Widget"
+            }
+          }
+        },
+        "type": "ia.symbol.pump"
+      }
+    ],
+    "custom": {
+      "tagPaths": {}
+    },
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\ttagPath \u003d self.view.params.rootTagPath\n\tview \u003d \u0027Templates/Faceplate/Common/Small Faceplate Skeleton\u0027\n\tposition \u003d {\u0027width\u0027:350,\u0027height\u0027:150}\n\tcommonNamePath \u003d tagPath + \u0027/General/Common Name\u0027\n\tcommonName \u003d system.tag.read(commonNamePath).value\n\ttitleStr \u003d str(commonName)\n\tparams \u003d {\n\t\t\u0027rootTagPath\u0027:tagPath\n\t}\n\tsystem.perspective.openPopup(id \u003d tagPath,view \u003d view,params \u003d params,title \u003d titleStr,overlayDismiss\u003dTrue,position\u003dposition)"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.currentTime": {
+        "binding": {
+          "config": {
+            "expression": "now()"
+          },
+          "type": "expr"
+        }
+      },
+      "custom.pumpAlarms": {
+        "binding": {
+          "config": {
+            "expression": "now(1000)"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\t\n\treturn templates.getActiveChildrenAlarms(self.view.params.rootTagPath)",
+              "type": "script"
+            }
+          ],
+          "type": "expr"
+        }
+      },
+      "custom.tagPaths.Name": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value + \u0027/General/Common Name\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.RunStatus": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value + \u0027/Control/Device Status/Running\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.SpeedFB": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "overlayOptOut": true,
+          "transforms": [
+            {
+              "code": "\treturn value + \u0027/Control/Device Status/Speed Feedback\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagValues": {
+        "binding": {
+          "config": {
+            "path": "this.custom.currentTime"
+          },
+          "transforms": [
+            {
+              "code": "\t\n\treturn templates.getTagValues(value, self.custom.tagPaths)",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "classes": "Templates/Component"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "updateCurrentTime",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tself.custom.currentTime \u003d payload[\u0027currentTime\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "highlightComponent",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n#\tsystem.util.getLogger(\u0027testing\u0027).info(\u0027received message\u0027)\n\tif str(self.view.params.rootTagPath) \u003d\u003d str(payload[\u0027tagPath\u0027]):\n\t\tself.props.style.classes \u003d \u0027Templates/Component Templates/HighlightComponent\u0027",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.coord"
+  }
+}

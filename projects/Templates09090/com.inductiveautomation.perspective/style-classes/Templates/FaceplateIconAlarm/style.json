@@ -1,0 +1,18 @@
+{
+  "base": {
+    "style": {
+      "borderBottomColor": "#ff4747",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": "1px",
+      "borderLeftColor": "#ff4747",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": "1px",
+      "borderRightColor": "#ff4747",
+      "borderRightStyle": "solid",
+      "borderRightWidth": "1px",
+      "borderTopColor": "#ff4747",
+      "borderTopStyle": "solid",
+      "borderTopWidth": "1px"
+    }
+  }
+}
