@@ -1,0 +1,2291 @@
+{
+  "custom": {},
+  "params": {
+    "switchPath": "[default]Exchange/TSW212FacePlate/TSW212"
+  },
+  "propConfig": {
+    "params.switchPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 260,
+      "width": 546
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TopBanner"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.switchPath}"
+                },
+                "tagPath": "{1}/sys_hostname"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#000",
+            "color": "#FFF",
+            "textAlign": "center",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "pc9NAzR6",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "center"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "TSW212 System Information",
+                    "type": "open",
+                    "viewParams": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupTSW212Information",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "TSW212"
+            },
+            "position": {
+              "height": 1,
+              "width": 1
+            },
+            "propConfig": {
+              "custom.Link": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{1}/port_link"
+                  },
+                  "type": "tag"
+                }
+              },
+              "custom.Port1": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[0]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port2": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[1]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port3": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[2]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port4": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[3]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port5": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[4]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port6": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[5]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port7": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[6]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Port8": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[7]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.SFP1": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[8]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.SFP2": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Link[9]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "exchange/tsw212-face-plate/link-down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "exchange/tsw212-face-plate/link-up"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.Speed": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{1}/port_speed"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.elements[1].elements[10].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port6"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[11].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port8"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[1].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.SFP1"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[2].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.SFP2"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[4].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port1"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[5].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port3"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[6].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port5"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[7].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port7"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[8].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port2"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].elements[9].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.Port4"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "id": "defs1",
+                  "name": "defs1",
+                  "type": "defs"
+                },
+                {
+                  "elements": [
+                    {
+                      "d": "m -32.02603,118.12023 v 45.32058 l 1.436676,15.93404 c 0.723165,3.06443 2.521019,5.05418 5.681398,5.6814 H 226.96737 c 2.53609,-0.46333 4.95373,-1.21092 5.77935,-5.77936 l 1.53464,-17.01154 v -44.01451 l -1.56729,-16.71768 c -0.73181,-3.82596 -2.83039,-4.918381 -5.28958,-5.289576 H -24.842652 c -2.587848,0.796887 -4.973862,1.957073 -5.844657,5.844656 z",
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#515151"
+                      },
+                      "id": "path1",
+                      "name": "path1",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#6b6b6b",
+                        "width": "1"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "height": 19.982851,
+                      "id": "sfp1",
+                      "name": "sfp1",
+                      "style": {},
+                      "type": "rect",
+                      "width": "31.21504",
+                      "x": "179.55707",
+                      "y": "111.32867"
+                    },
+                    {
+                      "height": 19.982851,
+                      "id": "sfp2",
+                      "name": "sfp2",
+                      "style": {},
+                      "type": "rect",
+                      "width": "31.21504",
+                      "x": "179.55705",
+                      "y": "143.32735"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#737373"
+                      },
+                      "height": "52.247643",
+                      "id": "rect3",
+                      "name": "rect3",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#7e7e7e",
+                        "width": "0.995102"
+                      },
+                      "type": "rect",
+                      "width": "131.65662",
+                      "x": "30.140387",
+                      "y": "111.58744"
+                    },
+                    {
+                      "d": "m 55.277454,127.39332 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -5.616093,-14.88918 h 5.7467 l -0.06635,-3.70417 h 2.867134 l -0.04431,-1.72484 h 8.291745 l 0.04198,1.72484 h 2.827221 l 0.05752,3.70417 h 5.746704 v 14.88918 H 34.844685 Z",
+                      "id": "port1",
+                      "name": "port1",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 87.556641,127.39332 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -2.116668,-5.61609 v 5.61609 m -5.616093,-14.88918 h 5.7467 l -0.06635,-3.70417 h 2.867134 l -0.04431,-1.72484 h 8.291745 l 0.04198,1.72484 h 2.827221 l 0.05752,3.70417 h 5.746704 v 14.88918 H 67.123872 Z",
+                      "id": "port3",
+                      "name": "port3",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 119.83594,127.39332 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -5.616121,-14.88918 h 5.746731 l -0.0663,-3.70417 h 2.86715 l -0.0443,-1.72484 h 8.29179 l 0.042,1.72484 h 2.82724 l 0.0575,3.70417 h 5.74673 v 14.88918 H 99.403059 Z",
+                      "id": "port5",
+                      "name": "port5",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 152.64448,127.39332 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -2.11668,-5.61609 v 5.61609 m -5.61613,-14.88918 h 5.74674 l -0.0663,-3.70417 h 2.86715 l -0.0443,-1.72484 h 8.29179 l 0.042,1.72484 h 2.82724 l 0.0575,3.70417 h 5.74673 v 14.88918 h -25.46855 z",
+                      "id": "port7",
+                      "name": "port7",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 55.277454,147.94083 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -5.616093,14.88918 h 5.7467 l -0.06635,3.70417 h 2.867134 l -0.04431,1.72484 h 8.291745 l 0.04198,-1.72484 h 2.827221 l 0.05752,-3.70417 h 5.746704 V 142.32474 H 34.844685 Z",
+                      "id": "port2",
+                      "name": "port2",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 87.556641,147.94083 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -2.116668,5.61609 v -5.61609 m -5.616093,14.88918 h 5.7467 l -0.06635,3.70417 h 2.867134 l -0.04431,1.72484 h 8.291745 l 0.04198,-1.72484 h 2.827221 l 0.05752,-3.70417 h 5.746704 V 142.32474 H 67.123872 Z",
+                      "id": "port4",
+                      "name": "path16",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 119.83594,147.94083 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -5.616121,14.88918 h 5.746731 l -0.0663,3.70417 h 2.86715 l -0.0443,1.72484 h 8.29179 l 0.042,-1.72484 h 2.82724 l 0.0575,-3.70417 h 5.74673 V 142.32474 H 99.403059 Z",
+                      "id": "port6",
+                      "name": "path17",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 152.64448,147.94083 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -2.11668,5.61609 v -5.61609 m -5.61613,14.88918 h 5.74674 l -0.0663,3.70417 h 2.86715 l -0.0443,1.72484 h 8.29179 l 0.042,-1.72484 h 2.82724 l 0.0575,-3.70417 h 5.74673 v -14.88918 h -25.46855 z",
+                      "id": "port8",
+                      "name": "port8",
+                      "style": {},
+                      "type": "path"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#3e3e3e"
+                      },
+                      "height": "28.814135",
+                      "id": "rect18",
+                      "name": "rect18",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#6d6d6d",
+                        "width": "1"
+                      },
+                      "type": "rect",
+                      "width": "25.674133",
+                      "x": "-14.613413",
+                      "y": "135.49149"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "height": "4.8023558",
+                      "id": "rect19",
+                      "name": "rect19",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#ff1111",
+                        "width": "1"
+                      },
+                      "type": "rect",
+                      "width": "8.4964752",
+                      "x": "-12.951058",
+                      "y": "145.09621"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1f1f1f"
+                      },
+                      "height": "4.8023558",
+                      "id": "rect20",
+                      "name": "rect20",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#727272",
+                        "width": "1"
+                      },
+                      "type": "rect",
+                      "width": "8.4964752",
+                      "x": "-12.951058",
+                      "y": "145.09621"
+                    },
+                    {
+                      "cx": "-8.7951736",
+                      "cy": "155.7168",
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1f1f1f"
+                      },
+                      "id": "path20",
+                      "name": "path20",
+                      "r": "4.3405905",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#727272",
+                        "width": "1"
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1f1f1f"
+                      },
+                      "height": "4.8023558",
+                      "id": "rect21",
+                      "name": "rect21",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#727272",
+                        "width": "1"
+                      },
+                      "type": "rect",
+                      "width": "8.4964752",
+                      "x": "-1.838563",
+                      "y": "145.09621"
+                    },
+                    {
+                      "cx": "2.3173263",
+                      "cy": "155.7168",
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1f1f1f"
+                      },
+                      "id": "circle21",
+                      "name": "circle21",
+                      "r": "4.3405905",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#727272",
+                        "width": "1"
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "-22.186357",
+                      "cy": "105.015",
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "id": "path21",
+                      "name": "path21",
+                      "r": "4.987062",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "#ff1111",
+                        "width": "1"
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "elements": [
+                            {
+                              "cx": "-22.186357",
+                              "cy": "105.015",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "circle22",
+                              "name": "circle22",
+                              "r": "4.987062",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "type": "circle"
+                            },
+                            {
+                              "d": "m 53.055706,113.09243 2.206178,10.14081 -7.679116,6.98102 -9.885292,-3.15981 -2.206178,-10.14081 7.679115,-6.98102 z",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "path23",
+                              "name": "path23",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "transform": "matrix(0.26458333,0,0,0.26458333,-34.192247,73.245573)",
+                              "type": "path"
+                            }
+                          ],
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#7c7c7c"
+                          },
+                          "id": "g24",
+                          "name": "g24",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "#2d2d2d"
+                          },
+                          "type": "group"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "cx": "-22.186357",
+                              "cy": "105.015",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "circle24",
+                              "name": "circle24",
+                              "r": "4.987062",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "type": "circle"
+                            },
+                            {
+                              "d": "m 53.055706,113.09243 2.206178,10.14081 -7.679116,6.98102 -9.885292,-3.15981 -2.206178,-10.14081 7.679115,-6.98102 z",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "path24",
+                              "name": "path24",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "transform": "matrix(0.26458333,0,0,0.26458333,-34.192247,73.245573)",
+                              "type": "path"
+                            }
+                          ],
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#7c7c7c"
+                          },
+                          "id": "g25",
+                          "name": "g25",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "#2d2d2d"
+                          },
+                          "transform": "translate(0,71.437506)",
+                          "type": "group"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "cx": "-22.186357",
+                              "cy": "105.015",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "circle25",
+                              "name": "circle25",
+                              "r": "4.987062",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "type": "circle"
+                            },
+                            {
+                              "d": "m 53.055706,113.09243 2.206178,10.14081 -7.679116,6.98102 -9.885292,-3.15981 -2.206178,-10.14081 7.679115,-6.98102 z",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "path25",
+                              "name": "path25",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "transform": "matrix(0.26458333,0,0,0.26458333,-34.192247,73.245573)",
+                              "type": "path"
+                            }
+                          ],
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#7c7c7c"
+                          },
+                          "id": "g26",
+                          "name": "g26",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "#2d2d2d"
+                          },
+                          "transform": "translate(246.59175)",
+                          "type": "group"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "cx": "-22.186357",
+                              "cy": "105.015",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "circle26",
+                              "name": "circle26",
+                              "r": "4.987062",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "type": "circle"
+                            },
+                            {
+                              "d": "m 53.055706,113.09243 2.206178,10.14081 -7.679116,6.98102 -9.885292,-3.15981 -2.206178,-10.14081 7.679115,-6.98102 z",
+                              "fill": {
+                                "opacity": "1",
+                                "paint": "#7c7c7c"
+                              },
+                              "id": "path26",
+                              "name": "path26",
+                              "stroke": {
+                                "linecap": "square",
+                                "opacity": "1",
+                                "paint": "#2d2d2d",
+                                "width": "1"
+                              },
+                              "transform": "matrix(0.26458333,0,0,0.26458333,-34.192247,73.245573)",
+                              "type": "path"
+                            }
+                          ],
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#7c7c7c"
+                          },
+                          "id": "g27",
+                          "name": "g27",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "#2d2d2d"
+                          },
+                          "transform": "translate(246.59175,71.437506)",
+                          "type": "group"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#7c7c7c"
+                      },
+                      "id": "g28",
+                      "name": "g28",
+                      "stroke": {
+                        "opacity": "1",
+                        "paint": "#2d2d2d"
+                      },
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan28",
+                          "name": "tspan28",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "PWR",
+                          "type": "tspan",
+                          "x": "-7.7543397",
+                          "y": "132.51123"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text28",
+                      "name": "text28",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "-7.7543397",
+                      "y": "132.51123"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan29",
+                          "name": "tspan29",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "+",
+                          "type": "tspan",
+                          "x": "-9.2569408",
+                          "y": "172.39011"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text29",
+                      "name": "text29",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "-9.2569408",
+                      "y": "172.39011"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan30",
+                          "name": "tspan30",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "-",
+                          "type": "tspan",
+                          "x": "0.90189236",
+                          "y": "171.9624"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text30",
+                      "name": "text30",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "0.90189236",
+                      "y": "171.9624"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#fff7f7"
+                          },
+                          "id": "tspan31",
+                          "name": "tspan31",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "1",
+                          "type": "tspan",
+                          "x": "46.528534",
+                          "y": "107.47217"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#fff7f7"
+                      },
+                      "id": "text31",
+                      "name": "text31",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "46.528534",
+                      "y": "107.47217"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#fff7f7"
+                          },
+                          "id": "tspan32",
+                          "name": "tspan32",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "3",
+                          "type": "tspan",
+                          "x": "78.134171",
+                          "y": "107.41394"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#fff7f7"
+                      },
+                      "id": "text32",
+                      "name": "text32",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "78.134171",
+                      "y": "107.41394"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#fff7f7"
+                          },
+                          "id": "tspan33",
+                          "name": "tspan33",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "5",
+                          "type": "tspan",
+                          "x": "110.2344",
+                          "y": "107.41618"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#fff7f7"
+                      },
+                      "id": "text33",
+                      "name": "text33",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "110.2344",
+                      "y": "107.41618"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#fff7f7"
+                          },
+                          "id": "tspan34",
+                          "name": "tspan34",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "7",
+                          "type": "tspan",
+                          "x": "142.18629",
+                          "y": "107.47217"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#fff7f7"
+                      },
+                      "id": "text34",
+                      "name": "text34",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "142.18629",
+                      "y": "107.47217"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan35",
+                          "name": "tspan35",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "1",
+                          "type": "tspan",
+                          "x": "192.37691",
+                          "y": "107.47217"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text35",
+                      "name": "text35",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "192.37691",
+                      "y": "107.47217"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan36",
+                          "name": "tspan36",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "SFP",
+                          "type": "tspan",
+                          "x": "-142.37654",
+                          "y": "219.60284"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text36",
+                      "name": "text36",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "transform": "rotate(-90)",
+                      "type": "text",
+                      "x": "-142.37654",
+                      "y": "219.60284"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan37",
+                          "name": "tspan37",
+                          "stroke": {
+                            "opacity": "1",
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "2",
+                          "type": "tspan",
+                          "x": "192.25728",
+                          "y": "174.6626"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text37",
+                      "name": "text37",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "192.25728",
+                      "y": "174.6626"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan38",
+                          "name": "tspan38",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "8",
+                          "type": "tspan",
+                          "x": "142.19861",
+                          "y": "174.6626"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text38",
+                      "name": "text38",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "142.19861",
+                      "y": "174.6626"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan39",
+                          "name": "tspan39",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "6",
+                          "type": "tspan",
+                          "x": "110.2568",
+                          "y": "174.6626"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text39",
+                      "name": "text39",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "110.2568",
+                      "y": "174.6626"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan40",
+                          "name": "tspan40",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "4",
+                          "type": "tspan",
+                          "x": "78.208069",
+                          "y": "174.64915"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text40",
+                      "name": "text40",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "78.208069",
+                      "y": "174.64915"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#ffffff"
+                          },
+                          "id": "tspan41",
+                          "name": "tspan41",
+                          "stroke": {
+                            "paint": "transparent",
+                            "width": "1"
+                          },
+                          "style": {
+                            "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                            "fontFamily": "Arial",
+                            "fontSize": "6.35px",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontVariant": "normal",
+                            "fontVariantCaps": "normal",
+                            "fontVariantEastAsian": "normal",
+                            "fontVariantLigatures": "normal",
+                            "fontVariantNumeric": "normal",
+                            "fontWeight": "bold"
+                          },
+                          "text": "2",
+                          "type": "tspan",
+                          "x": "46.408909",
+                          "y": "174.6626"
+                        }
+                      ],
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#ffffff"
+                      },
+                      "id": "text41",
+                      "name": "text41",
+                      "stroke": {
+                        "linecap": "square",
+                        "opacity": "1",
+                        "paint": "transparent",
+                        "width": "1"
+                      },
+                      "style": {
+                        "InkscapeFontSpecification": "\u0027Arial, Bold\u0027",
+                        "fontFamily": "Arial",
+                        "fontSize": "6.35px",
+                        "fontStretch": "normal",
+                        "fontStyle": "normal",
+                        "fontVariant": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantEastAsian": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text",
+                      "x": "46.408909",
+                      "y": "174.6626"
+                    }
+                  ],
+                  "id": "layer1",
+                  "name": "layer1",
+                  "transform": "translate(34.376953,-72.060867)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 20 270.93332 96.46666"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_grh",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "top-left"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 1 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "0",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port1PopupButton"
+            },
+            "position": {
+              "height": 0.2143,
+              "width": 0.0944,
+              "x": 0.2541,
+              "y": 0.2193
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_grg",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "top"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 3 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "2",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port3PopupButton"
+            },
+            "position": {
+              "height": 0.2143,
+              "width": 0.0981,
+              "x": 0.3735,
+              "y": 0.2142
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_geh",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "top"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 5 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "4",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port5PopupButton"
+            },
+            "position": {
+              "height": 0.2092,
+              "width": 0.0963,
+              "x": 0.4926,
+              "y": 0.2193
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_gdh",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "top-right"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 7 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "6",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port7PopupButton"
+            },
+            "position": {
+              "height": 0.2143,
+              "width": 0.0944,
+              "x": 0.6159,
+              "y": 0.2142
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_grc",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "bottom-left"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 2 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "1",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port2PopupButton"
+            },
+            "position": {
+              "height": 0.2092,
+              "width": 0.0981,
+              "x": 0.2544,
+              "y": 0.5204
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_grs",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "bottom"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 4 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "3",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port4PopupButton"
+            },
+            "position": {
+              "height": 0.2092,
+              "width": 0.0981,
+              "x": 0.3729,
+              "y": 0.5204
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_gnh",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "bottom"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 6 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "5",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port6PopupButton"
+            },
+            "position": {
+              "height": 0.2143,
+              "width": 0.0963,
+              "x": 0.4943,
+              "y": 0.5153
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_goh",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "bottom-right"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Port 8 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "7",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Port8PopupButton"
+            },
+            "position": {
+              "height": 0.2143,
+              "width": 0.0981,
+              "x": 0.614,
+              "y": 0.5204
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_sfp1",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "top"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "SFP Port 1 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "8",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "SFP1PopupButton"
+            },
+            "position": {
+              "height": 0.2041,
+              "width": 0.1148,
+              "x": 0.7903,
+              "y": 0.2041
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "-Xz2_sfp2",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "position": {
+                      "relativeLocation": "bottom"
+                    },
+                    "positionType": "relative",
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "SFP Port 2 Information",
+                    "type": "open",
+                    "viewParams": {
+                      "portNumber": "9",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "viewPath": "Exchange/TSW212FacePlate/popupPortInformation",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "SFP2PopupButton"
+            },
+            "position": {
+              "height": 0.2092,
+              "width": 0.1148,
+              "x": 0.7903,
+              "y": 0.5255
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "#00000000",
+                "borderStyle": "none"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "196px",
+          "grow": 1
+        },
+        "props": {
+          "aspectRatio": "546:198",
+          "mode": "percent"
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "BottomBanner"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.switchPath}"
+                },
+                "tagPath": "{1}/lan_ip"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#000",
+            "color": "#FFF",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

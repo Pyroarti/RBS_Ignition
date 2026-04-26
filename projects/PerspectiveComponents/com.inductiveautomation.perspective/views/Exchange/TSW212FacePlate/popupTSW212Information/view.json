@@ -1,0 +1,706 @@
+{
+  "custom": {},
+  "params": {
+    "switchPath": "[default]Exchange/TSW212FacePlate/TSW212"
+  },
+  "propConfig": {
+    "params.switchPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 441,
+      "width": 398
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "DNS:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/lan_dns"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "IP:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/lan_ip"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_5"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Mask:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/lan_mask"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Gateway:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/lan_gateway"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_6"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Uptime:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/sys_uptime"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\thours \u003d value // 3600\n\tminutes \u003d (value % 3600) // 60\n\tsecs \u003d value % 60\n\treturn \"{:02d}:{:02d}:{:02d}\".format(hours, minutes, secs)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_10"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "MAC:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/lan_mac"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_4"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Serial:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/sys_serial"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_9"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Dev Code:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/sys_devcode"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Dev Name:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/sys_devname"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_7"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Hostname:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/sys_hostname"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_8"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "FW Version:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/sys_version"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_11"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

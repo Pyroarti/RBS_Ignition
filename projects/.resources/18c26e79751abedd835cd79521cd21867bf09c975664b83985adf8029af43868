@@ -1,0 +1,829 @@
+{
+  "custom": {
+    "tick": {
+      "$": [
+        "ts",
+        192,
+        1632262431262
+      ],
+      "$ts": 1632262431262
+    },
+    "turnOnGatewayLogger": false
+  },
+  "params": {
+    "currentTime": "2021-09-19 22:29:32",
+    "filter": "",
+    "historicalMode": false,
+    "play": false,
+    "playbackSpeed": 1,
+    "rangeOption": 2,
+    "showModeSwitch": true,
+    "tags": [
+      "[BuildAThon_Kevin]Tanks/Tank 1/Level",
+      "[BuildAThon_Kevin]Tanks/Tank 2/Level",
+      "[BuildAThon_Kevin]Tanks/Main/Level"
+    ],
+    "tickError": "",
+    "timestamp": "value",
+    "values": {
+      "Tanks_Main_Level": null,
+      "Tanks_Tank_1_Level": null,
+      "Tanks_Tank_2_Level": null
+    }
+  },
+  "propConfig": {
+    "custom.tick": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[System]Gateway/CurrentDateTime"
+        },
+        "transforms": [
+          {
+            "code": "\t#system.util.getLogger(\"tick\").info(\"tock\"+str(value))\n\treturn value",
+            "type": "script"
+          }
+        ],
+        "type": "tag"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\t\n\t# This is the main logic of this component. Tick Tock every second.\n\t# If we\u0027re in realtime mode, just feed realtime values through\n\t# Otherwise, manage the cache, add things as needed, and return the values that\n\t#   match the current timestamp\n\n\tstart \u003d system.date.now()\n\tcurrentTimeDate \u003d system.date.now()\n\tinfo \u003d \"Tick: \"\n\t\n\t\n\tplay \u003d self.params.play\n\thistoricalMode \u003d self.params.historicalMode\n\ttags \u003d [tag for tag in self.params.tags]\n\t\n\tif self.params.tickError !\u003d \"\":\n\t\tself.params.tickError \u003d \"\"\n\t\n\t#globals \u003d system.util.getGlobals()\n\t#globals[\u0027playbackCache\u0027] \u003d {}\n\t\n\t# Realtime Mode\n\tif not historicalMode:\n\t\t# Just readAll() the current tag values\n\t\tinfo +\u003d \"Realtime mode.\"\n\t\ttagValues \u003d {}\n\t\tvalues \u003d system.tag.readBlocking(tags)\n\t\tindex \u003d 0\n\t\tfor tag in tags:\n\t\t\tfriendlyTag \u003d (tag.split(\"]\")[1] if len(tag.split(\"]\"))\u003e1 else tag).replace(\"/\", \"_\").replace(\" \", \"_\")\n\t\t\ttagValues[friendlyTag] \u003d values[index].value\n\t\t\tindex +\u003d 1\n\t\tself.params.values \u003d tagValues\n\t\t\n\t\t\n\t# Historical Mode\n\telse:\n\t\tinfo +\u003d \"Historical mode. \"\n\t\tcurrentTime \u003d self.params.currentTime\n\t\tcurrentTimeDate \u003d system.date.parse(currentTime)\n\t\t\n\t\tif play:\n\t\t\t# Move the current time x seconds into the future\n\t\t\tinfo +\u003d \"Playing. \"\n\t\t\tspeed \u003d self.params.playbackSpeed\n\t\t\tnewTime \u003d system.date.addSeconds(currentTimeDate, speed)\n\t\t\tself.params.currentTime \u003d system.date.format(newTime, \"yyyy-MM-dd HH:mm:ss\")\n\t\t\tif newTime \u003e system.date.parse(self.params.rangeEnd):\n\t\t\t\tself.params.historicalMode \u003d False\n\t\t\t\tself.params.play \u003d False\n\t\t\t\tself.params.playbackSpeed \u003d 1\n\t\t\t\treturn\n\t\t\telse:\n\t\t\t\tcurrentTimeDate \u003d newTime\n\t\t\t\n\t\t\n\t\t# Check the cache\n\t\tcurrentTimeString \u003d \"T\"+system.date.format(currentTimeDate, \"yyyy-MM-dd HH-mm-ss\").replace(\" \", \"T\")\n\t\t#self.custom.debug \u003d vars(self.custom.historyCache) #.has_key(currentTimeString)\n\t\tinfo +\u003d \"Time: \"+currentTimeString+\"  \"\n\t\t\n\t\tglobals \u003d system.util.getGlobals()\n\t\t\n\t\tif \u0027playbackCache\u0027 not in globals:\n\t\t\tglobals[\u0027playbackCache\u0027] \u003d {}\n\t\tcache \u003d globals[\u0027playbackCache\u0027]\n\t\tif currentTimeString in cache:\n\t\t\t#self.custom.debug \u003d \"stringInCache\"\n\t\t\trow \u003d cache[currentTimeString]\n\t\t\tfoundAll \u003d True\n\t\t\tfor tag in tags:\n\t\t\t\tif (tag.split(\"]\")[1] if len(tag.split(\"]\"))\u003e1 else tag).replace(\"/\",\"_\").replace(\" \",\"_\") not in row:\n\t\t\t\t\tfoundAll \u003d False\n\t\t\tif foundAll:\n\t\t\t\t# Cache Hit\n\t\t\t\tinfo +\u003d \"Cache hit. \"\n\t\t\t\tself.params.values \u003d row\n\t\tif not \u0027foundAll\u0027 in vars() or foundAll \u003d\u003d False:\n\t\t\t# Cache Miss\n\t\t\tinfo +\u003d \"Cache miss. \"\n\t\t\t#self.custom.debug \u003d foundAll\n\t\t\t\n\t\t\t# Set the length of the cache retrieval:\n\t\t\tseconds \u003d 10\n\t\t\t\n\t\t\t# Grab the values from the current second\n\t\t\tdataset \u003d system.tag.queryTagHistory([tag for tag in tags], currentTimeDate, system.date.addSeconds(currentTimeDate, seconds), seconds)\n\t\t\tpyDataset \u003d system.dataset.toPyDataSet(dataset)\n\t\t\tcolumns \u003d pyDataset.getColumnNames()\n\t\t\t\n\t\t\t# Make sure the cache isn\u0027t too big.  If it is, dump it.\n\t\t\tif len(cache) \u003e 10000:\n\t\t\t\tcache \u003d {}\n\t\t\t\n\t\t\tfor row in pyDataset:\n\t\t\t\tvalues \u003d {}\n\t\t\t\ttimeStampString \u003d \"\"\n\t\t\t\tfor i in range(len(columns)):\n\t\t\t\t\tif columns[i] \u003d\u003d \"t_stamp\":\n\t\t\t\t\t\ttimeStampString \u003d \"T\"+system.date.format(row[i], \"yyyy-MM-dd HH-mm-ss\").replace(\" \", \"T\")\n\t\t\t\t\telse:\n\t\t\t\t\t\tvalues[columns[i].replace(\"/\",\"_\").replace(\" \",\"_\")] \u003d row[i]\n\t\t\t\tcache[timeStampString] \u003d values\n\n\t\t\tself.params.values \u003d cache[currentTimeString]\n\t\t\t\n\t\t\t#self.custom.debug \u003d cache\n\t\t\t\n\ttotalTime \u003d system.date.millisBetween(start, system.date.now())\n\tinfo +\u003d \"Total time: \"+str(totalTime)\n\t\n\tif self.custom.turnOnGatewayLogger:\n\t\tsystem.util.getLogger(\"Historical Playback\").info(info)\n\t\t\n\tmessage \u003d \u0027updateCurrentTime\u0027\n\tpayload \u003d {\n\t\t\u0027currentTime\u0027: currentTimeDate\n\t}\n\tsystem.perspective.sendMessage(message,payload,\u0027page\u0027)"
+      },
+      "persistent": true
+    },
+    "custom.turnOnGatewayLogger": {
+      "persistent": true
+    },
+    "params.currentTime": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.filter": {
+      "binding": {
+        "config": {
+          "path": "view.params.historicalMode"
+        },
+        "transforms": [
+          {
+            "fallback": "",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": true,
+                "output": "hue-rotate(-20deg) grayscale(20%)"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.historicalMode": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.play": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.playbackSpeed": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.rangeEnd": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[System]Gateway/CurrentDateTime"
+        },
+        "transforms": [
+          {
+            "formatType": "datetime",
+            "formatValue": "yyyy-MM-dd HH:mm:ss",
+            "type": "format"
+          }
+        ],
+        "type": "tag"
+      },
+      "paramDirection": "inout"
+    },
+    "params.rangeOption": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rangeOptionEnd": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rangeOptionStart": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rangeStart": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[System]Gateway/CurrentDateTime"
+        },
+        "transforms": [
+          {
+            "code": "\tif self.params.rangeOption \u003d\u003d 1:\n\t\tdate \u003d system.date.addMinutes(value, -1)\n\telif self.params.rangeOption \u003d\u003d 2:\n\t\tdate \u003d system.date.addHours(value, -1)\n\telse:\n\t\tdate \u003d system.date.addDays(value, -1)\n\t\t\t\t\n\treturn system.date.format(date, \"yyyy-MM-dd HH:mm:ss\")",
+            "type": "script"
+          }
+        ],
+        "type": "tag"
+      },
+      "paramDirection": "inout"
+    },
+    "params.showModeSwitch": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tags": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tags[0]": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tags[0].alias": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tags[2]": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tickError": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.timestamp": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.values": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.values.Tanks_Tank_1_Level": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 156,
+      "width": 474
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "text": "Mode:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "MultiStateButton"
+            },
+            "position": {
+              "basis": "269px"
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.historicalMode"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.controlValue"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "orientation": "row",
+              "states": [
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#32E5E2",
+                    "classes": ""
+                  },
+                  "text": "Realtime",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": false
+                },
+                {
+                  "selectedStyle": {
+                    "backgroundColor": "#3FB0FF",
+                    "classes": ""
+                  },
+                  "text": "Historical",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": true
+                }
+              ]
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "42px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.showModeSwitch"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t\n\trangeStart  \u003d system.date.parse(self.custom.rangeStart)\n\trangeEnd    \u003d system.date.parse(self.custom.rangeEnd)\n\t\n\tsecondsBetween \u003d system.date.secondsBetween(rangeStart, rangeEnd)\n\tsecondsFromStart \u003d (secondsBetween / 1000.0) * self.props.value\n\tnewTime \u003d system.date.addSeconds(rangeStart, int(secondsFromStart))\n\t\n\tself.custom.currentTime \u003d system.date.format(newTime, \"yyyy-MM-dd HH:mm:ss\")\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Slider"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "custom.currentTime": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.currentTime"
+              },
+              "type": "property"
+            }
+          },
+          "custom.rangeEnd": {
+            "binding": {
+              "config": {
+                "path": "view.params.rangeEnd"
+              },
+              "type": "property"
+            }
+          },
+          "custom.rangeStart": {
+            "binding": {
+              "config": {
+                "path": "view.params.rangeStart"
+              },
+              "type": "property"
+            }
+          },
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.historicalMode"
+              },
+              "type": "property"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.historicalMode"
+              },
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "onChange": {
+              "enabled": false,
+              "script": "\t\n\tif currentValue.value !\u003d previousValue.value:\n\t\t\n\t\trangeStart  \u003d self.view.params.rangeStart # system.date.parse(self.view.params.rangeStart, \"MMMM dd, yyyy, hh:mm:ss aa\")\n\t\trangeEnd    \u003d self.view.params.rangeEnd # system.date.parse(self.view.params.rangeEnd, \"MMMM dd, yyyy, hh:mm:ss aa\")\n\t\tcurrentTime \u003d system.date.parse(self.view.params.currentTime)\n\t\t\n\t\tsecondsBetween \u003d system.date.secondsBetween(rangeStart, rangeEnd)\n\t\tsecondsFromStart \u003d (secondsBetween / 1000.0) * currentValue.value\n\t\tnewTime \u003d system.date.addSeconds(rangeStart, int(secondsFromStart))\n\t\t\n\t\tself.view.params.currentTime \u003d newTime\n\t\t"
+            }
+          }
+        },
+        "props": {
+          "max": 999,
+          "style": {
+            "marginLeft": "10px",
+            "marginRight": "10px"
+          },
+          "value": 999
+        },
+        "type": "ia.input.slider"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.custom.play \u003d not self.custom.play"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.play": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.params.play"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.historicalMode"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.play"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/pause",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": false,
+                              "output": "material/play_arrow"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tspeed \u003d self.custom.playbackSpeed\n\tif speed \u003c 8:\n\t\tnewSpeed \u003d speed * 2\n\telse:\n\t\tnewSpeed \u003d 1\n\tself.custom.playbackSpeed \u003d newSpeed"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "26px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.playbackSpeed": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.params.playbackSpeed"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.historicalMode"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{this.custom.playbackSpeed}+\"X\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer",
+                    "fontSize": "19px",
+                    "fontWeight": "bold",
+                    "userSelect": "none"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Start"
+            },
+            "position": {
+              "display": false
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.historicalMode"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.rangeStart"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "datetime",
+                      "formatValue": {
+                        "date": "medium",
+                        "time": "medium"
+                      },
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "currentTime": "{[System]Gateway/CurrentDateTime}",
+                      "historicalMode": "{view.params.historicalMode}",
+                      "historicalTime": "{view.params.currentTime}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[\u0027historicalMode\u0027]:\n\t\treturn value[\u0027historicalTime\u0027]\n\telse:\n\t\treturn value[\u0027currentTime\u0027]",
+                      "type": "script"
+                    },
+                    {
+                      "formatType": "datetime",
+                      "formatValue": {
+                        "date": "medium",
+                        "time": "medium"
+                      },
+                      "type": "format"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "16px",
+                "margin": "0px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "End"
+            },
+            "position": {
+              "display": false
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.historicalMode"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.rangeEnd"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "datetime",
+                      "formatValue": {
+                        "date": "medium",
+                        "time": "medium"
+                      },
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "textAlign": "end"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.view.params.play \u003d not self.view.params.play "
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.play"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/pause",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": false,
+                              "output": "material/play_arrow"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tspeed \u003d self.view.params.playbackSpeed\n\tif speed \u003c 8:\n\t\tnewSpeed \u003d speed * 2\n\telse:\n\t\tnewSpeed \u003d 1\n\tself.view.params.playbackSpeed \u003d newSpeed"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "26px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.playbackSpeed}+\"X\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer",
+                    "fontSize": "19px",
+                    "fontWeight": "bold",
+                    "userSelect": "none"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0",
+              "visible": false
+            },
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "43.1px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton"
+        },
+        "position": {
+          "basis": "52px"
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.historicalMode"
+              },
+              "type": "property"
+            }
+          },
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.rangeOption"
+              },
+              "type": "property"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "path": "this.props.controlValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "orientation": "row",
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "#3FB0FF",
+                "classes": ""
+              },
+              "text": "Past Minute",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#3FB0FF",
+                "classes": ""
+              },
+              "text": "Past Hour",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#3FB0FF",
+                "classes": ""
+              },
+              "text": "Past Day",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 3
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#3FB0FF",
+                "classes": ""
+              },
+              "text": "Custom",
+              "unselectedStyle": {
+                "classes": "",
+                "display": "none"
+              },
+              "value": 4
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

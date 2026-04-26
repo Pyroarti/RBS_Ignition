@@ -1,0 +1,328 @@
+{
+  "custom": {},
+  "params": {
+    "rootTagPath": "[default]Tank 1"
+  },
+  "propConfig": {
+    "params.rootTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 225,
+      "width": 296
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Label"
+                      },
+                      "text": "Tank Level"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "custom.units": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "Level": "{/root.custom.tagPaths.Level}"
+                            },
+                            "tagPath": "{Level}.EngUnit"
+                          },
+                          "overlayOptOut": true,
+                          "type": "tag"
+                        }
+                      },
+                      "custom.value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "Level": "{/root.custom.tagPaths.Level}"
+                            },
+                            "tagPath": "{Level}"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "#,##0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "tag"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "concat({this.custom.value}, \" \", {this.custom.units})"
+                          },
+                          "overlayOptOut": true,
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "Templates/Value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_TankLevel"
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_Values"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "spacer"
+            },
+            "position": {
+              "basis": "10px",
+              "shrink": 0
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Vessel"
+            },
+            "position": {
+              "basis": "100px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.displayAgitator": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "Type": "{/root.custom.tagPaths.Type}"
+                    },
+                    "tagPath": "{Type}"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d \u0027Mixer\u0027:\n\t\tret \u003d True\n\telse:\n\t\tret \u003d False\n\treturn ret",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              },
+              "props.value.capacity": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "RangeHigh": "{/root.custom.tagPaths.RangeHigh}"
+                    },
+                    "tagPath": "{RangeHigh}"
+                  },
+                  "overlayOptOut": true,
+                  "type": "tag"
+                }
+              },
+              "props.value.value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "Level": "{/root.custom.tagPaths.Level}"
+                    },
+                    "tagPath": "{Level}"
+                  },
+                  "overlayOptOut": true,
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "bottom": "conical",
+              "label": {
+                "location": "hidden"
+              },
+              "liquidColor": "#D5D5D5",
+              "value": {
+                "location": "hidden"
+              }
+            },
+            "type": "ia.symbol.vessel"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_Tank Values"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "propConfig": {
+          "props.params.endDate": {
+            "binding": {
+              "config": {
+                "expression": "now(5000)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.tagPath[0].path": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.tagPaths.Level"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "desiredHigh": "",
+            "desiredLow": "",
+            "setPoint": "",
+            "startDate": {
+              "$": [
+                "ts",
+                192,
+                1631996326344
+              ],
+              "$ts": 1631909897464
+            },
+            "tagPath": [
+              {}
+            ],
+            "timeRange": 1,
+            "unit": "%",
+            "value": 50.6
+          },
+          "path": "Templates/Faceplate/Common/Sparkline Value"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "custom": {
+      "tagPaths": {}
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.tagPaths.DesiredHigh": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn \u0027{}/Device Status/Tank Params/DesiredHigh\u0027.format(value)",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.Level": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \u0027/Control/Device Status/Level\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.tagPaths.Type": {
+        "binding": {
+          "config": {
+            "path": "view.params.rootTagPath"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value + \u0027/General/Type\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "justify": "space-around",
+      "style": {
+        "classes": "Templates/Padding"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

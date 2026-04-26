@@ -1,0 +1,229 @@
+[
+  {
+    "typeColor": -13749845,
+    "documentation": "This is the UDT for polling the Teltonika TSW212 L2 Managed Ethernet Switch, and pairs with our TSW212 faceplate for Perspective Views.\n\nTo use this resource, create an instance of this UDT, and set the Instance Name to the name of the OPC Connection in the Ignition Gateway. No furhter configuration is required.\n\nIf you want to use a different InstanceName to the OPC Connection name, simply set the param \"OPCServer\" to match the Connection Name instead.",
+    "name": "TSW212UDT",
+    "tooltip": "Teltonika TSW212 L2 Managed Ethernet Switch",
+    "parameters": {
+      "OPCServer": {
+        "dataType": "String",
+        "value": {
+          "bindType": "parameter",
+          "binding": "{InstanceName}"
+        }
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dlan_dns",
+        "dataType": "StringArray",
+        "name": "lan_dns",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dlan_gateway",
+        "dataType": "String",
+        "name": "lan_gateway",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dlan_ip",
+        "dataType": "String",
+        "name": "lan_ip",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dlan_mac",
+        "dataType": "String",
+        "name": "lan_mac",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dlan_mask",
+        "dataType": "String",
+        "name": "lan_mask",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_full_duplex",
+        "dataType": "BooleanArray",
+        "name": "port_full_duplex",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_label",
+        "dataType": "StringArray",
+        "name": "port_label",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_link",
+        "dataType": "BooleanArray",
+        "name": "port_link",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_mac",
+        "dataType": "StringArray",
+        "name": "port_mac",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_rstp_state",
+        "dataType": "StringArray",
+        "name": "port_rstp_state",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_rx",
+        "dataType": "Int8Array",
+        "name": "port_rx",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_speed",
+        "dataType": "Int8Array",
+        "name": "port_speed",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dport_tx",
+        "dataType": "Int8Array",
+        "name": "port_tx",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dsys_devcode",
+        "dataType": "String",
+        "name": "sys_devcode",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dsys_devname",
+        "dataType": "String",
+        "name": "sys_devname",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dsys_hostname",
+        "dataType": "String",
+        "name": "sys_hostname",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dsys_serial",
+        "dataType": "String",
+        "name": "sys_serial",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dsys_uptime",
+        "dataType": "Int8",
+        "name": "sys_uptime",
+        "tagType": "AtomicTag"
+      },
+      {
+        "opcServer": {
+          "bindType": "parameter",
+          "binding": "{OPCServer}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003dsys_version",
+        "dataType": "String",
+        "name": "sys_version",
+        "tagType": "AtomicTag"
+      }
+    ]
+  }
+]

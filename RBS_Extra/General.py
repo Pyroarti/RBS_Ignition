@@ -40,12 +40,23 @@ def clamp(value: float, low: float, high: float) -> float:
     return max(low, min(value, high))
 
 
-async def add_status_group(parent, idx: int, folder_name: str, prefix: str, start: int, end: int):
+async def add_status_group(
+    parent,
+    idx: int,
+    folder_name: str,
+    prefix: str,
+    start: int,
+    end: int,
+    with_commands: bool = False,
+):
     """
     Skapar t.ex.:
-      Objects/SCADA_Test/Pumps/P101/Status
+      Objects/SCADA_Test/Pumps/P101/Status   (Int32, skrivbar)
+      Objects/SCADA_Test/Pumps/P101/Start    (Bool, skrivbar)  – om with_commands=True
+      Objects/SCADA_Test/Pumps/P101/Auto     (Bool, skrivbar)  – om with_commands=True
 
-    Status är skrivbar Int32.
+    Start: True = start, False = stopp
+    Auto:  True = auto,  False = manuellt
     """
     folder = await parent.add_folder(idx, folder_name)
     nodes = {}
@@ -53,13 +64,33 @@ async def add_status_group(parent, idx: int, folder_name: str, prefix: str, star
     for number in range(start, end + 1):
         tag = f"{prefix}{number}"
         obj = await folder.add_object(idx, tag)
+
         status = await obj.add_variable(
             idx,
             "Status",
             ua.Variant(0, ua.VariantType.Int32),
         )
         await status.set_writable()
-        nodes[tag] = status
+
+        entry = {"status": status}
+
+        if with_commands:
+            start_node = await obj.add_variable(
+                idx,
+                "Start",
+                ua.Variant(False, ua.VariantType.Boolean),
+            )
+            auto_node = await obj.add_variable(
+                idx,
+                "Auto",
+                ua.Variant(True, ua.VariantType.Boolean),
+            )
+            await start_node.set_writable()
+            await auto_node.set_writable()
+            entry["start"] = start_node
+            entry["auto"] = auto_node
+
+        nodes[tag] = entry
 
     return nodes
 
@@ -223,6 +254,39 @@ async def simulate_process(analog_points: dict[str, AnalogPoint]):
 
         await asyncio.sleep(UPDATE_INTERVAL_SECONDS)
 
+async def simulate_commandable(commandable_nodes: dict[str, dict]):
+    """
+    Status följer Auto/Start för pumpar och ventiler.
+    Status=4 (Larm) lämnas orörd så att SCADA kan sätta/återställa larm
+    på samma sätt som för analoga punkter.
+    """
+    while True:
+        for entry in commandable_nodes.values():
+            if "start" not in entry:
+                continue  # grupp utan kommandon, hoppa över
+
+            auto = bool(await entry["auto"].read_value())
+            start = bool(await entry["start"].read_value())
+
+            if auto and not start:
+                new_status = 0
+            elif auto and start:
+                new_status = 1
+            elif not auto and not start:
+                new_status = 2
+            else:
+                new_status = 3
+
+            current = int(await entry["status"].read_value())
+            if current == 4:
+                continue  # Larm är latchat, lämna ifred
+            if current != new_status:
+                await entry["status"].write_value(
+                    ua.Variant(new_status, ua.VariantType.Int32)
+                )
+
+        await asyncio.sleep(UPDATE_INTERVAL_SECONDS)
+
 
 async def main():
     server = Server()
@@ -243,9 +307,9 @@ async def main():
     idx = await server.register_namespace(NAMESPACE_URI)
     scada_root = await server.nodes.objects.add_object(idx, "SCADA_Test")
 
-    pump_nodes = await add_status_group(scada_root, idx, "Pumps", "P", 101, 110)
-    motor_nodes = await add_status_group(scada_root, idx, "Motors", "M", 101, 110)
-    valve_nodes = await add_status_group(scada_root, idx, "Valves", "V", 101, 110)
+    pump_nodes  = await add_status_group(scada_root, idx, "Pumps",  "P", 101, 110, with_commands=True)
+    motor_nodes = await add_status_group(scada_root, idx, "Motors", "M", 101, 110, with_commands=True)
+    valve_nodes = await add_status_group(scada_root, idx, "Valves", "V", 101, 110, with_commands=True)
     valve_op_nodes = await add_op_group(scada_root, idx, "Valves_OP", "V_OP", 101, 110)
 
     analog_points = {}
@@ -275,7 +339,7 @@ async def main():
             0.0,
             16.0,
             2.0,
-            18.0,
+            14.0,
             0.2,
         )
     )
@@ -349,7 +413,12 @@ async def main():
     )
 
     async with server:
-        await simulate_process(vars["analogs"])
+        await asyncio.gather(
+            simulate_process(vars["analogs"]),
+            simulate_commandable(vars["pumps"]),
+            simulate_commandable(vars["valves"]),
+            simulate_commandable(vars["motors"]),
+        )
 
 
 if __name__ == "__main__":

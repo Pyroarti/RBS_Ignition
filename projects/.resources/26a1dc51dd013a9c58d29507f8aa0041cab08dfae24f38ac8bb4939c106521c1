@@ -1,0 +1,603 @@
+{
+  "custom": {},
+  "params": {
+    "portNumber": 4,
+    "switchPath": "[default]Exchange/TSW212FacePlate/TSW212"
+  },
+  "propConfig": {
+    "params.portNumber": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.switchPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 322,
+      "width": 398
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Label:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_label[{portNo}]"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Link:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "10%",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_link[{portNo}]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/check_box_outline_blank",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "material/check_box"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "40%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Full Duplex:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "10%",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_full_duplex[{portNo}]"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/check_box_outline_blank",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "material/check_box"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "40%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Speed:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_speed[{portNo}]"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "number",
+                      "type": "format"
+                    },
+                    {
+                      "expression": "if({value} \u003c\u003d 100, {value} + \" Mbps\", round({value}/1000) + \" Gbps\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_6"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "TX:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_tx[{portNo}]"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if({value}\u003e1000000, round({value}/1000000, 1) + \" MB\", if({value}\u003e1000, round({value}/1000, 1) + \" KB\", {value}))",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_5"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "RX:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_rx[{portNo}]"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if({value}\u003e1000000, round({value}/1000000, 1) + \" MB\", if({value}\u003e1000, round({value}/1000, 1) + \" KB\", {value}))",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_4"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "RSTP State:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_rstp_state[{portNo}]"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "paddingRight": "5px",
+                "textAlign": "right",
+                "textTransform": "uppercase"
+              },
+              "text": "Port MAC:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "portNo": "{view.params.portNumber}",
+                      "switchPath": "{view.params.switchPath}"
+                    },
+                    "tagPath": "{switchPath}/port_mac[{portNo}]"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "left",
+                "textTransform": "none"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}
